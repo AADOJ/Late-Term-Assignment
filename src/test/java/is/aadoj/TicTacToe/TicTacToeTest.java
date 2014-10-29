@@ -12,6 +12,12 @@ public class TicTacToeTest
 	@Test
 	public void playerOneWon()
 	{			
-		assertEquals(1, TicTacToe.whoWon(true,false));
+		TicTackToe game = new TickTackToe();
+		game.insertChar(0);
+		game.insertChar(2);
+		game.insertChar(4);
+		game.insertChar(3);
+		game.insertChar(8);
+		assertEquals(1, game.whoWon());
 	}
 }
