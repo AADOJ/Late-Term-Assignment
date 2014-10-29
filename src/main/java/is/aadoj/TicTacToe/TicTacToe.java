@@ -21,13 +21,15 @@ public class TicTacToe
 		return board;
 	}
 
-	public bool gameFinished()
+	public boolean gameFinished()
 	{
 		return false;
 	}
 
-	public int whoWon()
+	public static int whoWon(boolean player1, boolean player2)
 	{
+		if (player1) return 1;
+		if (player2) return 2;
 		return 0;
 	}
 }
