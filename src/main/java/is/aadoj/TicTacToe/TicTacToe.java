@@ -9,15 +9,26 @@ public class TicTacToe
 
 	public TicTacToe()
 	{
-		round = 1;
+		round = 0;
 		board = new char[9];
 		p1Won = false;
 		p2Won = false;
+		for (int i = 0; i < 9; i++)
+		{
+			board[i] = ' ';
+		}
 	}
 
 	// inserts a symbol at target location
 	public char[] insertChar(int location)
 	{
+		round++;
+		char symbol;
+		if (round % 2 == 1) symbol = 'X';
+		else symbol = 'O';
+
+		board[location] = symbol;
+
 		return board;
 	}
 
@@ -26,8 +37,10 @@ public class TicTacToe
 		return false;
 	}
 
-	public int whoWon()
+	public static int whoWon(boolean player1, boolean player2)
 	{
+		if (player1) return 1;
+		if (player2) return 2;
 		return 0;
 	}
 }
