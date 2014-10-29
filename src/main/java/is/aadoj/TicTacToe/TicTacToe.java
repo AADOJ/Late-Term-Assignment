@@ -21,7 +21,7 @@ public class TicTacToe
 		return board;
 	}
 
-	public bool gameFinished()
+	public boolean gameFinished()
 	{
 		return false;
 	}
