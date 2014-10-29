@@ -7,7 +7,6 @@ public class TicTacToeTest
 {
 	public static void main(String args[])
 	{
-<<<<<<< HEAD
 		org.junit.runner.JUnitCore.main("is.aadoj.TicTacToe.TicTacToeTest");
 	}
 
@@ -72,13 +71,6 @@ public class TicTacToeTest
 		assertEquals(1, game.whoWon());
 =======
 		assertEquals(1, TicTacToe.whoWon(true,false));
-=======
-		org.junit.runner.JUnitCore.main("is.aadoj.TicTacToe");
-	}
-	@Test
-	public void exampleTest()
-	{
-		assertEquals(0, 0);
 	}
 
 	@Test
@@ -86,7 +78,10 @@ public class TicTacToeTest
 	{
 		TicTacToe game = new TicTacToe();
 		assertEquals(false, game.gameFinished());
+<<<<<<< HEAD
 >>>>>>> develop
 >>>>>>> 86097312cc567981c36f087ab0278ced7874f19e
+=======
+>>>>>>> f2174e24e2c428c297cbee2db9347b3f0540d699
 	}
 }
