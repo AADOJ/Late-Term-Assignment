@@ -24,7 +24,7 @@ public class TicTacToe
 	{
 		round++;
 		char symbol;
-		if (round % 2 == 0) symbol = 'X';
+		if (round % 2 == 1) symbol = 'X';
 		else symbol = 'O';
 
 		board[location] = symbol;
