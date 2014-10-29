@@ -18,7 +18,7 @@ public class TicTacToeTest
 		char[] expected = new char[9];
 		for (int i = 0; i < 9; i++)
 		{
-			board[i] = ' ';
+			expected[i] = ' ';
 		}
 
 		result = game.insertChar(1);
@@ -56,7 +56,7 @@ public class TicTacToeTest
 		result = game.insertChar(6);
 		expected[6] = 'X';
 		assertArrayEquals(expected, result);
-
+	}
 
 	@Test
 	public void playerOneWon()
