@@ -68,6 +68,27 @@ public class TicTacToeTest
 	public void gameFinishedShouldReturnFalse()
 	{
 		TicTacToe game = new TicTacToe();
-		assertEquals(false, game.gameFinished());
+		assertFalse(game.gameFinished());
+	}
+	@Test
+	public void gameFinishedShouldReturnTrueForDiagonalX246()
+	{
+		TicTacToe game = new TicTacToe();
+		for(int i = 0; i < 7; i++)
+		{
+			game.insertChar(i);
+		}
+		assertTrue(game.gameFinished());
+	}
+	@Test
+	public void gameFinishedShouldReturnTrueForDiagonalO246()
+	{
+		TicTacToe game = new TicTacToe();
+		game.insertChar(8);
+		for(int i = 0; i < 7; i++)
+		{
+			game.insertChar(i);
+		}
+		assertTrue(game.gameFinished());
 	}
 }
