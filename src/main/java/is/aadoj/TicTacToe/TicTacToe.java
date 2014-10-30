@@ -34,6 +34,50 @@ public class TicTacToe
 
 	public boolean gameFinished()
 	{
+		if(checkLines())
+		{
+			if(round % 2 == 1)
+			{
+				p1Won = true;
+			}
+			else
+				p2Won = true;
+			return true;
+		}
+		else if(round == 9)
+		{
+			return true;
+		}
+		return false;
+
+	}
+	private boolean checkLines()
+	{
+		if(board[0] == board[1] && board[1] == board[2])
+		{
+			if(board[0] != ' ')
+			return true;
+		}
+		if(board[3] == board[4] && board[4] == board[5])
+		{
+			if(board[3] != ' ')
+			return true;
+		}
+		if(board[6] == board[7] && board[7] == board[8])
+		{
+			if(board[6] != ' ')
+			return true;
+		}
+		if(board[0] == board[4] && board[4] == board[8])
+		{
+			if(board[0] != ' ')
+			return true;
+		}
+		if(board[2] == board[4] && board[4] == board[6])
+		{
+			if(board[2] != ' ')
+			return true;
+		}
 		return false;
 	}
 

@@ -1,9 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
+<<<<<<< HEAD
 <testsuite name="is.aadoj.TicTacToe.TicTacToeTest" tests="3" skipped="0" failures="0" errors="0" timestamp="2014-10-30T19:00:49" hostname="Sisso-PC" time="0.007">
   <properties/>
   <testcase name="insertCharTest" classname="is.aadoj.TicTacToe.TicTacToeTest" time="0.006"/>
   <testcase name="gameFinishedShouldReturnFalse" classname="is.aadoj.TicTacToe.TicTacToeTest" time="0.0"/>
   <testcase name="playerOneWon" classname="is.aadoj.TicTacToe.TicTacToeTest" time="0.0"/>
+=======
+<testsuite name="is.aadoj.TicTacToe.TicTacToeTest" tests="5" skipped="0" failures="0" errors="0" timestamp="2014-10-30T17:13:05" hostname="Hreysi" time="0.037">
+  <properties/>
+  <testcase name="insertCharTest" classname="is.aadoj.TicTacToe.TicTacToeTest" time="0.015"/>
+  <testcase name="gameFinishedShouldReturnFalse" classname="is.aadoj.TicTacToe.TicTacToeTest" time="0.001"/>
+  <testcase name="playerOneWon" classname="is.aadoj.TicTacToe.TicTacToeTest" time="0.002"/>
+  <testcase name="gameFinishedShouldReturnTrueForDiagonalO246" classname="is.aadoj.TicTacToe.TicTacToeTest" time="0.001"/>
+  <testcase name="gameFinishedShouldReturnTrueForDiagonalX246" classname="is.aadoj.TicTacToe.TicTacToeTest" time="0.0"/>
+>>>>>>> 2835f2bee60ede36f54f94c88c189c4fc4562c83
   <system-out><![CDATA[]]></system-out>
   <system-err><![CDATA[]]></system-err>
 </testsuite>
