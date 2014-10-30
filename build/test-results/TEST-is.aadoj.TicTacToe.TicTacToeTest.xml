@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="is.aadoj.TicTacToe.TicTacToeTest" tests="4" skipped="0" failures="0" errors="0" timestamp="2014-10-30T18:32:54" hostname="Gudjons-MacBook-Pro.local" time="0.0040">
+<testsuite name="is.aadoj.TicTacToe.TicTacToeTest" tests="4" skipped="0" failures="0" errors="0" timestamp="2014-10-30T19:02:45" hostname="Gudjons-MacBook-Pro.local" time="0.0040">
   <properties/>
-  <testcase name="insertCharTest" classname="is.aadoj.TicTacToe.TicTacToeTest" time="0.0020"/>
+  <testcase name="insertCharTest" classname="is.aadoj.TicTacToe.TicTacToeTest" time="0.0030"/>
   <testcase name="gameFinishedShouldReturnFalse" classname="is.aadoj.TicTacToe.TicTacToeTest" time="0.0"/>
   <testcase name="playerOneWon" classname="is.aadoj.TicTacToe.TicTacToeTest" time="0.0"/>
   <testcase name="printBoardTest" classname="is.aadoj.TicTacToe.TicTacToeTest" time="0.0"/>
