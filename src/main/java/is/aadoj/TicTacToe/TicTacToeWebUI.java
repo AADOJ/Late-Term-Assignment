@@ -4,6 +4,7 @@ import spark.*;
 import static spark.Spark.*;
 import spark.servlet.SparkApplication;
 import com.google.gson.Gson;
+import is.aadoj.TicTacToe.TicTacToe.SlotOccupiedException;
 
 public class TicTacToeWebUI implements SparkApplication {
     public static void main(String[] args){
@@ -24,8 +25,18 @@ public class TicTacToeWebUI implements SparkApplication {
             @Override
             public Object handle(Request request, Response response){
                 Integer number = Integer.valueOf(request.queryParams("id"));
-                char[] board = game.insertChar(number);
-                return new Gson().toJson(board);
+                
+                try
+                {
+                    char[] board = game.insertChar(number);
+                    return new Gson().toJson(board);
+                }
+                catch(SlotOccupiedException ex)
+                {
+                    //TODO: fix error message
+                    return "Error";
+                }
+                
             }
         });
 
