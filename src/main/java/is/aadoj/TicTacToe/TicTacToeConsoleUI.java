@@ -17,6 +17,7 @@ public class TicTacToeConsoleUI
 				System.out.println(game.printBoard());
 				game.insertChar(in.nextInt());
 			}
+			System.out.println(game.printBoard());
 			if (game.whoWon(true, false) == 0) 																// TODO:Laga whoWon
 				System.out.println("It's a tie!");
 			else
