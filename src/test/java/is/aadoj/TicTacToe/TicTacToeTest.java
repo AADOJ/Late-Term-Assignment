@@ -67,6 +67,15 @@ public class TicTacToeTest
 		game.insertChar(2);
 	}
 
+	@Test(expected = SlotOccupiedException.class)
+	public void insertCharWhereOccupiedBySelf() throws SlotOccupiedException
+	{
+		TicTacToe game = new TicTacToe();
+		game.insertChar(1);
+		game.insertChar(5);
+		game.insertChar(1);
+	}
+
 	@Test
 	public void playerOneWon() 
 	{			
