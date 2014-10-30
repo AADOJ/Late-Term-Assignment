@@ -31,7 +31,11 @@ public class TicTacToe
 		if (round % 2 == 1) symbol = 'X';
 		else symbol = 'O';
 
-		if(board[location] == 'X' || board[location] == 'O') throw new SlotOccupiedException();
+		if(board[location] == 'X' || board[location] == 'O') 
+		{
+			round--;
+			throw new SlotOccupiedException();	
+		}
 		board[location] = symbol;
 
 		return board;
