@@ -90,6 +90,13 @@ public class TicTacToeTest
 		}
 	}
 
+	@Test(expected = TicTacToeException.class)
+	public void insertCharLocationOutOfBounds() throws TicTacToeException
+	{
+		TicTacToe game = new TicTacToe();
+		game.insertChar(9);
+	}
+
 	@Test
 	public void playerOneWon() 
 	{			
