@@ -88,4 +88,15 @@ public class TicTacToe
 		if (player2) return 2;
 		return 0;
 	}
+
+	public String printBoard()
+	{
+		String boardString;
+		String wall = "|";
+		String floor = "-----";
+		boardString = board[0] + wall + board[1] + wall + board[2] + "\n" +  floor + "\n"
+			+ board[3] + wall + board[4] + wall + board[5] + "\n" +  floor  + "\n"
+			+ board[6] + wall + board[7] + wall + board[8];
+		return boardString;
+	}
 }
