@@ -65,7 +65,7 @@ public class TicTacToeTest
 	}
 
 	@Test
-	public void gameFinishedShouldReturnFalse()
+	public void gameFinishedShouldReturnFalseAfterNoMove()
 	{
 		TicTacToe game = new TicTacToe();
 		assertFalse(game.gameFinished());
@@ -89,6 +89,29 @@ public class TicTacToeTest
 		{
 			game.insertChar(i);
 		}
+		assertTrue(game.gameFinished());
+	}
+	@Test
+	public void gameFinishedShouldReturnTrueForDiagonalX048()
+	{
+		TicTacToe game = new TicTacToe();
+		game.insertChar(8);
+		game.insertChar(2);
+		game.insertChar(0);
+		game.insertChar(6);
+		game.insertChar(4);
+		assertTrue(game.gameFinished());
+	}
+	@Test
+	public void gameFinishedShouldReturnTrueForDiagonalO048()
+	{
+		TicTacToe game = new TicTacToe();
+		game.insertChar(2);
+		game.insertChar(8);
+		game.insertChar(6);
+		game.insertChar(0);
+		game.insertChar(7);
+		game.insertChar(4);
 		assertTrue(game.gameFinished());
 	}
 }
