@@ -7,37 +7,24 @@
  * user guide available at http://gradle.org/docs/2.1/userguide/tutorial_java_projects.html
  */
 
-apply plugin: 'application'
-
 // Apply the java plugin to add support for Java
 apply plugin: 'java'
 
-//Apply the JaCoCo plugin to add support for Code Coverage
+apply plugin: 'application'
+
 apply plugin: 'jacoco'
 
-mainClassName = "org.gradle.my"
-
-//Configuring JaCoCo plugin
-jacoco {
-	toolVersion = "0.7.1.201405082137"
-	reportsDir = file("$buildDir/JaCoCo/TestReports")
-}
-
-test {
-	jacoco {
-		append = false
-		classDumpFile = file("$buildDir/JaCoCo/ClassDump")
-	}
-}
-
-//Jacoco Report Configuration
+//Run this to get code coverage report, has to be run after gradle check
 jacocoTestReport {
+    group = "Reporting"
+    description = "Generate Jacoco coverage reports after running tests."
     reports {
-        xml.enabled false
-        csv.enabled false
-        html.destination "${buildDir}/JaCoCo/TestReports/HTML"
-    }
+	    xml.enabled false
+	    csv.enabled false
+	    html.destination "${buildDir}/jacocoCoverageReportHtml"
+  }
 }
+
 
 // In this section you declare where to find the dependencies of your project
 repositories {
