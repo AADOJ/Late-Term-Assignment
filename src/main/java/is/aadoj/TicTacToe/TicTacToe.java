@@ -5,6 +5,10 @@ public class TicTacToe
 	public class TicTacToeException extends Exception
 	{
 		public TicTacToeException() { }
+		public TicTacToeException(String message)
+		{
+			super(message);
+		}
 	}
 	private int round;
 	private char[] board;
