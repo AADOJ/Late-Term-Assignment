@@ -91,7 +91,6 @@ public class TicTacToeTest
 		}
 		assertTrue(game.gameFinished());
 	}
-<<<<<<< HEAD
 	@Test
 	public void gameFinishedShouldReturnTrueForDiagonalX048()
 	{
@@ -178,7 +177,6 @@ public class TicTacToeTest
 		game.insertChar(5);
 		game.insertChar(8);
 		assertTrue(game.gameFinished());
-=======
 
 	@Test
 	public void printBoardTest()
@@ -200,6 +198,5 @@ public class TicTacToeTest
 		expected = "O|X|X" + "\n" + "-----" + "\n" + "X|O|O" + "\n" + "-----" + "\n" + "X|O|X";
 		assertEquals(expected, game.printBoard());
 
->>>>>>> 3b23f33d7b2ef3824ca6e28f68c22342a55b62cd
 	}
 }
