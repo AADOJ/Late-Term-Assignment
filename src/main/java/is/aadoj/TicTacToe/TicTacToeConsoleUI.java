@@ -1,7 +1,7 @@
 package is.aadoj.TicTacToe;
 
 import java.util.Scanner;
-import is.aadoj.TicTacToe.TicTacToe.SlotOccupiedException;
+import is.aadoj.TicTacToe.TicTacToe.TicTacToeException;
 
 public class TicTacToeConsoleUI
 {
@@ -19,7 +19,7 @@ public class TicTacToeConsoleUI
 				try
 				{
 				game.insertChar(in.nextInt());
-				} catch(SlotOccupiedException ex)
+				} catch(TicTacToeException ex)
 				{
 					System.out.println("This slot is occupied! Pick another one to place your mark.");
 				}

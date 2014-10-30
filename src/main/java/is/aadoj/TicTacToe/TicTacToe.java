@@ -2,9 +2,9 @@ package is.aadoj.TicTacToe;
 
 public class TicTacToe
 {
-	public class SlotOccupiedException extends Exception
+	public class TicTacToeException extends Exception
 	{
-		public SlotOccupiedException() { }
+		public TicTacToeException() { }
 	}
 	private int round;
 	private char[] board;
@@ -24,7 +24,7 @@ public class TicTacToe
 	}
 
 	// inserts a symbol at target location
-	public char[] insertChar(int location) throws SlotOccupiedException
+	public char[] insertChar(int location) throws TicTacToeException
 	{
 		round++;
 		char symbol;
@@ -34,7 +34,7 @@ public class TicTacToe
 		if(board[location] == 'X' || board[location] == 'O') 
 		{
 			round--;
-			throw new SlotOccupiedException();	
+			throw new TicTacToeException();	
 		}
 		board[location] = symbol;
 
