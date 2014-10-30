@@ -37,7 +37,7 @@ public class TicTacToe
 		return false;
 	}
 
-	public static int whoWon(boolean player1, boolean player2)
+	public static int whoWon()
 	{
 		if (player1) return 1;
 		if (player2) return 2;

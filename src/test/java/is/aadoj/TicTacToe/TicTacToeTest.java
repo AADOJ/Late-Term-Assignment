@@ -57,31 +57,26 @@ public class TicTacToeTest
 		expected[6] = 'X';
 		assertArrayEquals(expected, result);
 	}
-
+	
+	/*
 	@Test
 	public void playerOneWon()
 	{			
-<<<<<<< HEAD
-		TicTackToe game = new TickTackToe();
+		TicTacToe game = new TicTacToe();
 		game.insertChar(0);
 		game.insertChar(2);
 		game.insertChar(4);
 		game.insertChar(3);
 		game.insertChar(8);
 		assertEquals(1, game.whoWon());
-=======
-		assertEquals(1, TicTacToe.whoWon(true,false));
 	}
+	*/
 
 	@Test
 	public void gameFinishedShouldReturnFalse()
 	{
 		TicTacToe game = new TicTacToe();
 		assertEquals(false, game.gameFinished());
-<<<<<<< HEAD
->>>>>>> develop
->>>>>>> 86097312cc567981c36f087ab0278ced7874f19e
-=======
->>>>>>> f2174e24e2c428c297cbee2db9347b3f0540d699
+
 	}
 }
