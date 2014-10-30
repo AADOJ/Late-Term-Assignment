@@ -91,6 +91,8 @@ public class TicTacToeTest
 		}
 		assertTrue(game.gameFinished());
 	}
+
+
 	@Test
 	public void gameFinishedShouldReturnTrueForDiagonalX048()
 	{
@@ -176,6 +178,71 @@ public class TicTacToeTest
 		game.insertChar(7);
 		game.insertChar(5);
 		game.insertChar(8);
+		assertTrue(game.gameFinished());
+	}
+
+	}
+	public void gameFinishedShouldReturnTrueForXVerticalLine036()
+	{
+		TicTacToe game = new TicTacToe();
+		game.insertChar(0);
+		game.insertChar(1);
+		game.insertChar(3);
+		game.insertChar(5);
+		game.insertChar(6);
+		assertTrue(game.gameFinished());
+	}
+	public void gameFinishedShouldReturnTrueForOVerticalLine036()
+	{
+		TicTacToe game = new TicTacToe();
+		game.insertChar(7);
+		game.insertChar(0);
+		game.insertChar(1);
+		game.insertChar(3);
+		game.insertChar(5);
+		game.insertChar(6);
+		assertTrue(game.gameFinished());
+	}
+	public void gameFinishedShouldReturnTrueForXVerticalLine147()
+	{
+		TicTacToe game = new TicTacToe();
+		game.insertChar(7);
+		game.insertChar(0);
+		game.insertChar(4);
+		game.insertChar(3);
+		game.insertChar(1);
+		assertTrue(game.gameFinished());
+	}
+	public void gameFinishedShouldReturnTrueForOVerticalLine147()
+	{
+		TicTacToe game = new TicTacToe();
+		game.insertChar(5);
+		game.insertChar(7);
+		game.insertChar(0);
+		game.insertChar(4);
+		game.insertChar(3);
+		game.insertChar(1);
+		assertTrue(game.gameFinished());
+	}
+	public void gameFinishedShouldReturnTrueForXVerticalLine258()
+	{
+		TicTacToe game = new TicTacToe();
+		game.insertChar(2);
+		game.insertChar(0);
+		game.insertChar(5);
+		game.insertChar(3);
+		game.insertChar(8);
+		assertTrue(game.gameFinished());
+	}
+	public void gameFinishedShouldReturnTrueForOVerticalLine258()
+	{
+		TicTacToe game = new TicTacToe();
+		game.insertChar(0);
+		game.insertChar(2);
+		game.insertChar(3);
+		game.insertChar(5);
+		game.insertChar(8);
+		game.insertChar(7);
 		assertTrue(game.gameFinished());
 	}
 
