@@ -97,6 +97,13 @@ public class TicTacToeTest
 		game.insertChar(9);
 	}
 
+	@Test(expected = TicTacToeException.class)
+	public void insertCharLocationOutOfBoundsBelow() throws TicTacToeException
+	{
+		TicTacToe game = new TicTacToe();
+		game.insertChar(-1);
+	}
+
 	@Test
 	public void playerOneWon() 
 	{			
