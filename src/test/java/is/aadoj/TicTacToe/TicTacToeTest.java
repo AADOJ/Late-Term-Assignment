@@ -180,8 +180,6 @@ public class TicTacToeTest
 		game.insertChar(8);
 		assertTrue(game.gameFinished());
 	}
-
-	}
 	public void gameFinishedShouldReturnTrueForXVerticalLine036()
 	{
 		TicTacToe game = new TicTacToe();
