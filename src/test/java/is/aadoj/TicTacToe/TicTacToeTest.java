@@ -2,6 +2,7 @@ package is.aadoj.TicTacToe;
 
 import static org.junit.Assert.*;
 import org.junit.Test;
+import is.aadoj.TicTacToe.TicTacToe.SlotOccupiedException;
 
 public class TicTacToeTest
 {
@@ -11,7 +12,7 @@ public class TicTacToeTest
 	}
 
 	@Test
-	public void insertCharTest()
+	public void insertCharTest() throws SlotOccupiedException
 	{
 		TicTacToe game = new TicTacToe();
 		char[] result = new char[9];
@@ -58,8 +59,16 @@ public class TicTacToeTest
 		assertArrayEquals(expected, result);
 	}
 
+	@Test(expected = SlotOccupiedException.class)
+	public void insertCharWhereOccupiedByOpponent() throws SlotOccupiedException
+	{
+		TicTacToe game = new TicTacToe();
+		game.insertChar(2);
+		game.insertChar(2);
+	}
+
 	@Test
-	public void playerOneWon()
+	public void playerOneWon() 
 	{			
 		assertEquals(1, TicTacToe.whoWon(true,false));
 	}
@@ -71,7 +80,7 @@ public class TicTacToeTest
 		assertFalse(game.gameFinished());
 	}
 	@Test
-	public void gameFinishedShouldReturnTrueForDiagonalX246()
+	public void gameFinishedShouldReturnTrueForDiagonalX246() throws SlotOccupiedException
 	{
 		TicTacToe game = new TicTacToe();
 		for(int i = 0; i < 7; i++)
@@ -81,7 +90,7 @@ public class TicTacToeTest
 		assertTrue(game.gameFinished());
 	}
 	@Test
-	public void gameFinishedShouldReturnTrueForDiagonalO246()
+	public void gameFinishedShouldReturnTrueForDiagonalO246() throws SlotOccupiedException
 	{
 		TicTacToe game = new TicTacToe();
 		game.insertChar(8);
@@ -94,7 +103,7 @@ public class TicTacToeTest
 
 
 	@Test
-	public void gameFinishedShouldReturnTrueForDiagonalX048()
+	public void gameFinishedShouldReturnTrueForDiagonalX048() throws SlotOccupiedException
 	{
 		TicTacToe game = new TicTacToe();
 		game.insertChar(8);
@@ -105,7 +114,7 @@ public class TicTacToeTest
 		assertTrue(game.gameFinished());
 	}
 	@Test
-	public void gameFinishedShouldReturnTrueForDiagonalO048()
+	public void gameFinishedShouldReturnTrueForDiagonalO048() throws SlotOccupiedException
 	{
 		TicTacToe game = new TicTacToe();
 		game.insertChar(2);
@@ -116,7 +125,7 @@ public class TicTacToeTest
 		game.insertChar(4);
 		assertTrue(game.gameFinished());
 	}
-	public void gameFinishedShouldReturnTrueForXLine0To2()
+	public void gameFinishedShouldReturnTrueForXLine0To2() throws SlotOccupiedException
 	{
 		TicTacToe game = new TicTacToe();
 		game.insertChar(2);
@@ -127,7 +136,7 @@ public class TicTacToeTest
 		game.insertChar(4);
 		assertTrue(game.gameFinished());
 	}
-	public void gameFinishedShouldReturnTrueForOLine0To2()
+	public void gameFinishedShouldReturnTrueForOLine0To2() throws SlotOccupiedException
 	{
 		TicTacToe game = new TicTacToe();
 		game.insertChar(4);
@@ -138,7 +147,7 @@ public class TicTacToeTest
 		game.insertChar(1);
 		assertTrue(game.gameFinished());
 	}
-	public void gameFinishedShouldReturnTrueForXLine3To5()
+	public void gameFinishedShouldReturnTrueForXLine3To5() throws SlotOccupiedException
 	{
 		TicTacToe game = new TicTacToe();
 		game.insertChar(4);
@@ -148,7 +157,7 @@ public class TicTacToeTest
 		game.insertChar(3);
 		assertTrue(game.gameFinished());
 	}
-	public void gameFinishedShouldReturnTrueForOLine3To5()
+	public void gameFinishedShouldReturnTrueForOLine3To5() throws SlotOccupiedException
 	{
 		TicTacToe game = new TicTacToe();
 		game.insertChar(0);
@@ -159,7 +168,7 @@ public class TicTacToeTest
 		game.insertChar(3);
 		assertTrue(game.gameFinished());
 	}
-	public void gameFinishedShouldReturnTrueForXLine6To8()
+	public void gameFinishedShouldReturnTrueForXLine6To8() throws SlotOccupiedException
 	{
 		TicTacToe game = new TicTacToe();
 		game.insertChar(6);
@@ -169,7 +178,7 @@ public class TicTacToeTest
 		game.insertChar(8);
 		assertTrue(game.gameFinished());
 	}
-	public void gameFinishedShouldReturnTrueForOLine6To8()
+	public void gameFinishedShouldReturnTrueForOLine6To8() throws SlotOccupiedException
 	{
 		TicTacToe game = new TicTacToe();
 		game.insertChar(0);
@@ -180,7 +189,7 @@ public class TicTacToeTest
 		game.insertChar(8);
 		assertTrue(game.gameFinished());
 	}
-	public void gameFinishedShouldReturnTrueForXVerticalLine036()
+	public void gameFinishedShouldReturnTrueForXVerticalLine036() throws SlotOccupiedException
 	{
 		TicTacToe game = new TicTacToe();
 		game.insertChar(0);
@@ -190,7 +199,7 @@ public class TicTacToeTest
 		game.insertChar(6);
 		assertTrue(game.gameFinished());
 	}
-	public void gameFinishedShouldReturnTrueForOVerticalLine036()
+	public void gameFinishedShouldReturnTrueForOVerticalLine036() throws SlotOccupiedException
 	{
 		TicTacToe game = new TicTacToe();
 		game.insertChar(7);
@@ -201,7 +210,7 @@ public class TicTacToeTest
 		game.insertChar(6);
 		assertTrue(game.gameFinished());
 	}
-	public void gameFinishedShouldReturnTrueForXVerticalLine147()
+	public void gameFinishedShouldReturnTrueForXVerticalLine147() throws SlotOccupiedException
 	{
 		TicTacToe game = new TicTacToe();
 		game.insertChar(7);
@@ -211,7 +220,7 @@ public class TicTacToeTest
 		game.insertChar(1);
 		assertTrue(game.gameFinished());
 	}
-	public void gameFinishedShouldReturnTrueForOVerticalLine147()
+	public void gameFinishedShouldReturnTrueForOVerticalLine147() throws SlotOccupiedException
 	{
 		TicTacToe game = new TicTacToe();
 		game.insertChar(5);
@@ -222,7 +231,7 @@ public class TicTacToeTest
 		game.insertChar(1);
 		assertTrue(game.gameFinished());
 	}
-	public void gameFinishedShouldReturnTrueForXVerticalLine258()
+	public void gameFinishedShouldReturnTrueForXVerticalLine258() throws SlotOccupiedException
 	{
 		TicTacToe game = new TicTacToe();
 		game.insertChar(2);
@@ -232,7 +241,7 @@ public class TicTacToeTest
 		game.insertChar(8);
 		assertTrue(game.gameFinished());
 	}
-	public void gameFinishedShouldReturnTrueForOVerticalLine258()
+	public void gameFinishedShouldReturnTrueForOVerticalLine258() throws SlotOccupiedException
 	{
 		TicTacToe game = new TicTacToe();
 		game.insertChar(0);
@@ -245,7 +254,7 @@ public class TicTacToeTest
 	}
 
 	@Test
-	public void printBoardTest()
+	public void printBoardTest() throws SlotOccupiedException
 	{
 		TicTacToe game = new TicTacToe();
 		String expected = " | | " + "\n" + "-----" + "\n" + " | | " + "\n" + "-----" + "\n" + " | | ";
