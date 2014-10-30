@@ -221,6 +221,16 @@ public class TicTacToeTest
 		game.insertChar(1);
 		assertTrue(game.gameFinished());
 	}
+	public void gameFinishedShouldReturnTrueForXVerticalLine258()
+	{
+		TicTacToe game = new TicTacToe();
+		game.insertChar(2);
+		game.insertChar(0);
+		game.insertChar(5);
+		game.insertChar(3);
+		game.insertChar(8);
+		assertTrue(game.gameFinished());
+	}
 	@Test
 	public void printBoardTest()
 	{
