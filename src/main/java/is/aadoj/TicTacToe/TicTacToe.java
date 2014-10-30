@@ -78,6 +78,21 @@ public class TicTacToe
 			if(board[2] != ' ')
 			return true;
 		}
+		if(board[0] == board[3] && board[3] == board[6])
+		{
+			if(board[0] != ' ')
+			return true;
+		}
+		if(board[1] == board[4] && board[4] == board[7])
+		{
+			if(board[2] != ' ')
+			return true;
+		}
+		if(board[2] == board[5] && board[5] == board[8])
+		{
+			if(board[2] != ' ')
+			return true;
+		}
 		return false;
 	}
 
