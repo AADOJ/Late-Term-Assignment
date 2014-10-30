@@ -91,7 +91,10 @@ public class TicTacToeTest
 		}
 		assertTrue(game.gameFinished());
 	}
+<<<<<<< HEAD
 
+=======
+>>>>>>> 4ef58cbaf3e5f971bfc692ee961617f4b0d39ee2
 	@Test
 	public void gameFinishedShouldReturnTrueForDiagonalX048()
 	{
@@ -178,6 +181,7 @@ public class TicTacToeTest
 		game.insertChar(5);
 		game.insertChar(8);
 		assertTrue(game.gameFinished());
+<<<<<<< HEAD
 	}
 	public void gameFinishedShouldReturnTrueForXVerticalLine036()
 	{
@@ -242,6 +246,9 @@ public class TicTacToeTest
 		game.insertChar(7);
 		assertTrue(game.gameFinished());
 	}
+=======
+
+>>>>>>> 4ef58cbaf3e5f971bfc692ee961617f4b0d39ee2
 	@Test
 	public void printBoardTest()
 	{
