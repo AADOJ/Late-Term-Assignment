@@ -1,14 +1,24 @@
 <?xml version="1.0" encoding="UTF-8"?>
+<<<<<<< HEAD
 <testsuite name="is.aadoj.TicTacToe.TicTacToeTest" tests="8" skipped="0" failures="0" errors="0" timestamp="2014-10-30T20:04:20" hostname="Hreysi" time="0.023">
   <properties/>
   <testcase name="insertCharTest" classname="is.aadoj.TicTacToe.TicTacToeTest" time="0.013"/>
+=======
+<testsuite name="is.aadoj.TicTacToe.TicTacToeTest" tests="8" skipped="0" failures="0" errors="0" timestamp="2014-10-30T19:37:05" hostname="Gudjons-MacBook-Pro.local" time="0.0080">
+  <properties/>
+  <testcase name="insertCharTest" classname="is.aadoj.TicTacToe.TicTacToeTest" time="0.0040"/>
+>>>>>>> develop
   <testcase name="playerOneWon" classname="is.aadoj.TicTacToe.TicTacToeTest" time="0.0"/>
   <testcase name="printBoardTest" classname="is.aadoj.TicTacToe.TicTacToeTest" time="0.0"/>
   <testcase name="gameFinishedShouldReturnFalseAfterNoMove" classname="is.aadoj.TicTacToe.TicTacToeTest" time="0.0"/>
   <testcase name="gameFinishedShouldReturnTrueForDiagonalO048" classname="is.aadoj.TicTacToe.TicTacToeTest" time="0.0"/>
   <testcase name="gameFinishedShouldReturnTrueForDiagonalO246" classname="is.aadoj.TicTacToe.TicTacToeTest" time="0.0"/>
   <testcase name="gameFinishedShouldReturnTrueForDiagonalX048" classname="is.aadoj.TicTacToe.TicTacToeTest" time="0.0"/>
+<<<<<<< HEAD
   <testcase name="gameFinishedShouldReturnTrueForDiagonalX246" classname="is.aadoj.TicTacToe.TicTacToeTest" time="0.001"/>
+=======
+  <testcase name="gameFinishedShouldReturnTrueForDiagonalX246" classname="is.aadoj.TicTacToe.TicTacToeTest" time="0.0"/>
+>>>>>>> develop
   <system-out><![CDATA[]]></system-out>
   <system-err><![CDATA[]]></system-err>
 </testsuite>

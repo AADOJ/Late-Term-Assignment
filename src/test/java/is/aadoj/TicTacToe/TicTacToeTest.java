@@ -179,6 +179,7 @@ public class TicTacToeTest
 		game.insertChar(5);
 		game.insertChar(8);
 		assertTrue(game.gameFinished());
+	}
 
 	}
 	public void gameFinishedShouldReturnTrueForXVerticalLine036()
