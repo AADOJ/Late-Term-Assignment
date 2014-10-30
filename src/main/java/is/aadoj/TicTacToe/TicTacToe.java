@@ -38,7 +38,7 @@ public class TicTacToe
 		if(board[location] == 'X' || board[location] == 'O') 
 		{
 			round--;
-			throw new TicTacToeException();	
+			throw new TicTacToeException("This slot is occupied!");	
 		}
 		board[location] = symbol;
 

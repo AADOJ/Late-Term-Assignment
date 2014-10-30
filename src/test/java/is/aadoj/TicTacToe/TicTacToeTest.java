@@ -77,6 +77,20 @@ public class TicTacToeTest
 	}
 
 	@Test
+	public void insertCharWhereOccupiedCheckMessage()
+	{
+		TicTacToe game = new TicTacToe();
+		try
+		{
+			game.insertChar(1);
+			game.insertChar(1);
+		} catch (TicTacToeException ex)
+		{
+			assertEquals(ex.getMessage(), "This slot is occupied!");
+		}
+	}
+
+	@Test
 	public void playerOneWon() 
 	{			
 		assertEquals(1, TicTacToe.whoWon(true,false));
