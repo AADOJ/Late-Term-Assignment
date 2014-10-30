@@ -5,10 +5,6 @@ public class TicTacToe
 	public class TicTacToeException extends Exception
 	{
 		public TicTacToeException() { }
-		public TicTacToeException(String message)
-		{
-			super(message);
-		}
 	}
 	private int round;
 	private char[] board;
@@ -38,7 +34,7 @@ public class TicTacToe
 		if(board[location] == 'X' || board[location] == 'O') 
 		{
 			round--;
-			throw new TicTacToeException("This slot is occupied!");
+			throw new TicTacToeException();	
 		}
 		board[location] = symbol;
 
