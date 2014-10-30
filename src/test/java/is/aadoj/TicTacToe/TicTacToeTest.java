@@ -63,11 +63,6 @@ public class TicTacToeTest
 	{			
 		assertEquals(1, TicTacToe.whoWon(true,false));
 	}
-	@Test
-	public void exampleTest()
-	{
-		assertEquals(0, 0);
-	}
 
 	@Test
 	public void gameFinishedShouldReturnFalse()
