@@ -9,10 +9,10 @@
 
 // Apply the java plugin to add support for Java
 apply plugin: 'java'
-
 apply plugin: 'application'
-
 apply plugin: 'jacoco'
+
+mainClassName = "is.aadoj.TicTacToe.TicTacToeConsoleUI"
 
 //Run this to get code coverage report, has to be run after gradle check
 jacocoTestReport {
@@ -38,6 +38,8 @@ repositories {
 dependencies {
     // The production code uses the SLF4J logging API at compile time
     compile 'org.slf4j:slf4j-api:1.7.5'
+    compile 'com.sparkjava:spark-core:1.1.1'
+    compile 'com.google.code.gson:gson:2.3'
 
     // Declare the dependency for your favourite test framework you want to use in your tests.
     // TestNG is also supported by the Gradle Test task. Just change the
@@ -45,8 +47,6 @@ dependencies {
     // 'test.useTestNG()' to your build script.
     testCompile "junit:junit:4.11"
 
-    compile 'com.sparkjava:spark-core:1.1.1'
-    compile 'com.google.code.gson:gson:2.3'
 }
 
 jar {

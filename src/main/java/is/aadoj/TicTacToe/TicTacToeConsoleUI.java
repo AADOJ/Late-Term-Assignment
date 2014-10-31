@@ -2,7 +2,7 @@ package is.aadoj.TicTacToe;
 
 import java.util.Scanner;
 import is.aadoj.TicTacToe.TicTacToe.TicTacToeException;
-
+import com.google.gson.Gson;
 public class TicTacToeConsoleUI
 {
 	public static void main(String args[])
@@ -18,7 +18,10 @@ public class TicTacToeConsoleUI
 				System.out.println(game.printBoard());
 				try
 				{
-				game.insertChar(in.nextInt());
+					char[] board = game.insertChar(in.nextInt());
+					Gson gson = new Gson();
+					String b = gson.toJson(board);
+					System.out.println(b);
 				} catch(TicTacToeException ex)
 				{
 					System.out.println("This slot is occupied! Pick another one to place your mark.");
