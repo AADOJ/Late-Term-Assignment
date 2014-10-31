@@ -105,6 +105,19 @@ public class TicTacToeTest
 	}
 
 	@Test
+	public void insertCharLocationOutOfBoundsCheckMessage()
+	{
+		TicTacToe game = new TicTacToe();
+		try
+		{
+			game.insertChar(10);
+		} catch (TicTacToeException ex)
+		{
+			assertEquals(ex.getMessage(), "Location out of bounds!");
+		}
+	}
+
+	@Test
 	public void playerOneWon() 
 	{			
 		assertEquals(1, TicTacToe.whoWon(true,false));

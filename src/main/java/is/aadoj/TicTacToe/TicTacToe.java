@@ -30,7 +30,8 @@ public class TicTacToe
 	// inserts a symbol at target location
 	public char[] insertChar(int location) throws TicTacToeException
 	{
-		if(location < 0 || location > 8) throw new TicTacToeException();
+		if(location < 0 || location > 8)
+			throw new TicTacToeException("Location out of bounds!");
 		round++;
 		char symbol;
 		if (round % 2 == 1) symbol = 'X';
