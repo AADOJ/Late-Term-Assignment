@@ -2,10 +2,18 @@ package is.aadoj.TicTacToe;
 
 public class TicTacToe
 {
+	public class TicTacToeException extends Exception
+	{
+		public TicTacToeException() { }
+		public TicTacToeException(String message)
+		{
+			super(message);
+		}
+	}
 	private int round;
 	private char[] board;
-	boolean p1Won;
-	boolean p2Won;
+	private boolean p1Won;
+	private boolean p2Won;
 
 	public TicTacToe()
 	{
@@ -20,13 +28,20 @@ public class TicTacToe
 	}
 
 	// inserts a symbol at target location
-	public char[] insertChar(int location)
+	public char[] insertChar(int location) throws TicTacToeException
 	{
+		if(location < 0 || location > 8)
+			throw new TicTacToeException("Location out of bounds!");
 		round++;
 		char symbol;
 		if (round % 2 == 1) symbol = 'X';
 		else symbol = 'O';
 
+		if(board[location] == 'X' || board[location] == 'O') 
+		{
+			round--;
+			throw new TicTacToeException("This slot is occupied!");	
+		}
 		board[location] = symbol;
 
 		return board;
@@ -53,6 +68,7 @@ public class TicTacToe
 	}
 	private boolean checkLines()
 	{
+		
 		if(board[0] == board[1] && board[1] == board[2])
 		{
 			if(board[0] != ' ')
@@ -96,10 +112,10 @@ public class TicTacToe
 		return false;
 	}
 
-	public static int whoWon(boolean player1, boolean player2)
+	public int whoWon()
 	{
-		if (player1) return 1;
-		if (player2) return 2;
+		if (p1Won) return 1;
+		if (p2Won) return 2;
 		return 0;
 	}
 

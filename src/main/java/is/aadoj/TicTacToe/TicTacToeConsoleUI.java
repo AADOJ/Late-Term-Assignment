@@ -1,6 +1,7 @@
 package is.aadoj.TicTacToe;
 
 import java.util.Scanner;
+import is.aadoj.TicTacToe.TicTacToe.TicTacToeException;
 
 public class TicTacToeConsoleUI
 {
@@ -15,12 +16,19 @@ public class TicTacToeConsoleUI
 			while(!game.gameFinished())
 			{
 				System.out.println(game.printBoard());
+				try
+				{
 				game.insertChar(in.nextInt());
+				} catch(TicTacToeException ex)
+				{
+					System.out.println("This slot is occupied! Pick another one to place your mark.");
+				}
 			}
-			if (game.whoWon(true, false) == 0) 																// TODO:Laga whoWon
+			System.out.println(game.printBoard());
+			if (game.whoWon() == 0) 																// TODO:Laga whoWon
 				System.out.println("It's a tie!");
 			else
-				System.out.println("Player " + game.whoWon(true, false) + " won!");							// TODO:Laga whoWon
+				System.out.println("Player " + game.whoWon() + " won!");							// TODO:Laga whoWon
 
 			System.out.println("Another game? (Y/N)");
 			String newGame = in.next();
