@@ -221,7 +221,6 @@ public class TicTacToeTest
 		game.insertChar(0);
 		game.insertChar(3);
 		game.insertChar(1);
-		game.insertChar(4);
 		assertTrue(game.gameFinished());
 	}
 	public void gameFinishedShouldReturnTrueForOLine0To2() throws TicTacToeException
