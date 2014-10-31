@@ -12,8 +12,8 @@ public class TicTacToe
 	}
 	private int round;
 	private char[] board;
-	boolean p1Won;
-	boolean p2Won;
+	private boolean p1Won;
+	private boolean p2Won;
 
 	public TicTacToe()
 	{
@@ -112,10 +112,10 @@ public class TicTacToe
 		return false;
 	}
 
-	public static int whoWon(boolean player1, boolean player2)
+	public int whoWon()
 	{
-		if (player1) return 1;
-		if (player2) return 2;
+		if (p1Won) return 1;
+		if (p2Won) return 2;
 		return 0;
 	}
 

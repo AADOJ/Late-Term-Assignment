@@ -26,10 +26,10 @@ public class TicTacToeConsoleUI
 				}
 			}
 			System.out.println(game.printBoard());
-			if (game.whoWon(true, false) == 0) 																// TODO:Laga whoWon
+			if (game.whoWon() == 0) 																// TODO:Laga whoWon
 				System.out.println("It's a tie!");
 			else
-				System.out.println("Player " + game.whoWon(true, false) + " won!");							// TODO:Laga whoWon
+				System.out.println("Player " + game.whoWon() + " won!");							// TODO:Laga whoWon
 
 			System.out.println("Another game? (Y/N)");
 			String newGame = in.next();
