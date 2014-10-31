@@ -2,6 +2,14 @@ package is.aadoj.TicTacToe;
 
 public class TicTacToe
 {
+	public class TicTacToeException extends Exception
+	{
+		public TicTacToeException() { }
+		public TicTacToeException(String message)
+		{
+			super(message);
+		}
+	}
 	private int round;
 	private char[] board;
 	boolean p1Won;
@@ -20,13 +28,20 @@ public class TicTacToe
 	}
 
 	// inserts a symbol at target location
-	public char[] insertChar(int location)
+	public char[] insertChar(int location) throws TicTacToeException
 	{
+		if(location < 0 || location > 8)
+			throw new TicTacToeException("Location out of bounds!");
 		round++;
 		char symbol;
 		if (round % 2 == 1) symbol = 'X';
 		else symbol = 'O';
 
+		if(board[location] == 'X' || board[location] == 'O') 
+		{
+			round--;
+			throw new TicTacToeException("This slot is occupied!");	
+		}
 		board[location] = symbol;
 
 		return board;
@@ -53,6 +68,7 @@ public class TicTacToe
 	}
 	private boolean checkLines()
 	{
+		
 		if(board[0] == board[1] && board[1] == board[2])
 		{
 			if(board[0] != ' ')
@@ -74,6 +90,21 @@ public class TicTacToe
 			return true;
 		}
 		if(board[2] == board[4] && board[4] == board[6])
+		{
+			if(board[2] != ' ')
+			return true;
+		}
+		if(board[0] == board[3] && board[3] == board[6])
+		{
+			if(board[0] != ' ')
+			return true;
+		}
+		if(board[1] == board[4] && board[4] == board[7])
+		{
+			if(board[2] != ' ')
+			return true;
+		}
+		if(board[2] == board[5] && board[5] == board[8])
 		{
 			if(board[2] != ' ')
 			return true;
