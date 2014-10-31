@@ -9,7 +9,7 @@ td {
 	height:40px;
 	width: 40px;
 	border: solid;
-
+	background-color: indianred;
 
 }
 
@@ -36,4 +36,5 @@ button {
 body {
 	margin-left: 45%;
 	margin-top:10%;
+	background-color: lightblue;
 }

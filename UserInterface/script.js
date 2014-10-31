@@ -1,8 +1,8 @@
-var turn = iniz();
+var turn 
 
 
 $(document).ready(function(){
-
+	turn = iniz();
 	$("#status").hide();
 	
 	$(".tile").click(function(){
@@ -66,8 +66,8 @@ function drawOnBoard(tileNum){
 
 function iniz(){
 	//make ajax call to ask for header content
-	var resp = "TicTacToe"
-	$("#header").text();
+	var resp = "TicTacToe";
+	$("#header").text(resp);
 	return 1;
 
 	//make ajax call to ask for header content
