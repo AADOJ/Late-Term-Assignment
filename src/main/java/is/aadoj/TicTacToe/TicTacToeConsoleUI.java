@@ -34,7 +34,11 @@ public class TicTacToeConsoleUI
 			System.out.println("Another game? (Y/N)");
 			String newGame = in.next();
 			while(!(newGame.equals("Y") || newGame.equals("y") || newGame.equals("N") || newGame.equals("n")))
+			{
 				System.out.println("Incorrect input, use either Y or N");
+				newGame = in.next();
+			}
+			
 
 			if (newGame.equals("N") || newGame.equals("n"))
 				gameOn = false;
