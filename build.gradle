@@ -33,6 +33,11 @@ repositories {
     jcenter()
 }
 
+mainClassName = "is.aadoj.TicTacToe.TicTacToeConsoleUI"
+
+installApp {
+    destinationDir = file('../install/')
+}
 
 // In this section you declare the dependencies for your production and test code
 dependencies {
