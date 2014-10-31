@@ -18,10 +18,11 @@ public class TicTacToeConsoleUI
 				System.out.println(game.printBoard());
 				try
 				{
-				game.insertChar(in.nextInt());
-				} catch(TicTacToeException ex)
+					game.insertChar(in.nextInt());
+				} 
+				catch(TicTacToeException ex)
 				{
-					System.out.println("This slot is occupied! Pick another one to place your mark.");
+					System.out.println(ex.getMessage());
 				}
 			}
 			System.out.println(game.printBoard());
@@ -33,7 +34,11 @@ public class TicTacToeConsoleUI
 			System.out.println("Another game? (Y/N)");
 			String newGame = in.next();
 			while(!(newGame.equals("Y") || newGame.equals("y") || newGame.equals("N") || newGame.equals("n")))
+			{
 				System.out.println("Incorrect input, use either Y or N");
+				newGame = in.next();
+			}
+			
 
 			if (newGame.equals("N") || newGame.equals("n"))
 				gameOn = false;

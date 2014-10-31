@@ -33,8 +33,7 @@ public class TicTacToeWebUI implements SparkApplication {
                 }
                 catch(TicTacToeException ex)
                 {
-                    //TODO: fix error message
-                    return "Error";
+                    return ex.getMessage();
                 }
                 
             }
