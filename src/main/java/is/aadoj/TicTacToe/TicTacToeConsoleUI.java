@@ -22,7 +22,7 @@ public class TicTacToeConsoleUI
 				} 
 				catch(TicTacToeException ex)
 				{
-					System.out.println("This slot is occupied! Pick another one to place your mark.");
+					System.out.println(ex.getMessage());
 				}
 			}
 			System.out.println(game.printBoard());
