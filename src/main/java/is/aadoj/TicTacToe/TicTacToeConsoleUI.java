@@ -15,18 +15,19 @@ public class TicTacToeConsoleUI
 			System.out.println("Welcome to TicTacToe, insert a number from 0-8 to place your mark.");
 			while(!game.gameFinished())
 			{
-				if(in.hasNextInt()){
+				//if(in.hasNextInt()){
 					System.out.println(game.printBoard());
 					try
 					{
-					game.insertChar(in.nextInt());
+						game.insertChar(in.nextInt());
 					} catch(TicTacToeException ex)
 					{
-						System.out.println(ex.message());
+						System.out.println(ex.getMessage());
 					}
-				} else {
+				/*} else {
 					System.out.println("Illigal input, Not Integer");
-				}
+					in.nextInt();
+				}*/
 			}
 			System.out.println(game.printBoard());
 			if (game.whoWon() == 0) 																// TODO:Laga whoWon
