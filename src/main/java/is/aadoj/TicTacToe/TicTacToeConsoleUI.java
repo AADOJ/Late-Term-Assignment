@@ -15,19 +15,21 @@ public class TicTacToeConsoleUI
 			System.out.println("Welcome to TicTacToe, insert a number from 0-8 to place your mark.");
 			while(!game.gameFinished())
 			{
-				//if(in.hasNextInt()){
-					System.out.println(game.printBoard());
+				
+				System.out.println(game.printBoard());
+				if(in.hasNextInt()){
 					try
 					{
 						game.insertChar(in.nextInt());
-					} catch(TicTacToeException ex)
+					} 
+					catch(TicTacToeException ex)
 					{
 						System.out.println(ex.getMessage());
 					}
-				/*} else {
-					System.out.println("Illigal input, Not Integer");
-					in.nextInt();
-				}*/
+				} else {
+					System.out.println("Illegal input!, input integer");
+					in.next();
+				}
 			}
 			System.out.println(game.printBoard());
 			if (game.whoWon() == 0) 																// TODO:Laga whoWon
@@ -38,7 +40,11 @@ public class TicTacToeConsoleUI
 			System.out.println("Another game? (Y/N)");
 			String newGame = in.next();
 			while(!(newGame.equals("Y") || newGame.equals("y") || newGame.equals("N") || newGame.equals("n")))
+			{
 				System.out.println("Incorrect input, use either Y or N");
+				newGame = in.next();
+			}
+			
 
 			if (newGame.equals("N") || newGame.equals("n"))
 				gameOn = false;
