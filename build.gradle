@@ -7,24 +7,9 @@
  * user guide available at http://gradle.org/docs/2.1/userguide/tutorial_java_projects.html
  */
 
+
 // Apply the java plugin to add support for Java
 apply plugin: 'java'
-
-apply plugin: 'application'
-
-apply plugin: 'jacoco'
-
-//Run this to get code coverage report, has to be run after gradle check
-jacocoTestReport {
-    group = "Reporting"
-    description = "Generate Jacoco coverage reports after running tests."
-    reports {
-	    xml.enabled false
-	    csv.enabled false
-	    html.destination "${buildDir}/jacocoCoverageReportHtml"
-  }
-}
-
 
 // In this section you declare where to find the dependencies of your project
 repositories {
@@ -32,7 +17,6 @@ repositories {
     // You can declare any Maven/Ivy/file repository here.
     jcenter()
 }
-
 
 // In this section you declare the dependencies for your production and test code
 dependencies {
@@ -44,13 +28,5 @@ dependencies {
     // testCompile dependency to testCompile 'org.testng:testng:6.8.1' and add
     // 'test.useTestNG()' to your build script.
     testCompile "junit:junit:4.11"
-
-    compile 'com.sparkjava:spark-core:1.1.1'
-    compile 'com.google.code.gson:gson:2.3'
 }
 
-jar {
-    manifest {
-        attributes 'Main-Class': 'is.aadoj.TicTacToe.TicTacToeConsoleUI'
-    }
-}
