@@ -4,7 +4,6 @@ public class TicTacToe
 {
 	public class TicTacToeException extends Exception
 	{
-		public TicTacToeException() { }
 		public TicTacToeException(String message)
 		{
 			super(message);
@@ -68,7 +67,6 @@ public class TicTacToe
 	}
 	private boolean checkLines()
 	{
-		
 		if(board[0] == board[1] && board[1] == board[2])
 		{
 			if(board[0] != ' ')
@@ -101,7 +99,7 @@ public class TicTacToe
 		}
 		if(board[1] == board[4] && board[4] == board[7])
 		{
-			if(board[2] != ' ')
+			if(board[1] != ' ')
 			return true;
 		}
 		if(board[2] == board[5] && board[5] == board[8])
