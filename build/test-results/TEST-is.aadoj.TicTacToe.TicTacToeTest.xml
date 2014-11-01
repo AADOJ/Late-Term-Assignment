@@ -1,23 +1,23 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="is.aadoj.TicTacToe.TicTacToeTest" tests="17" skipped="0" failures="0" errors="0" timestamp="2014-11-01T18:39:29" hostname="Omar" time="0.016">
+<testsuite name="is.aadoj.TicTacToe.TicTacToeTest" tests="17" skipped="0" failures="0" errors="0" timestamp="2014-11-01T22:00:38" hostname="Hreysi" time="0.046">
   <properties/>
-  <testcase name="insertCharWhereOccupiedByOpponent" classname="is.aadoj.TicTacToe.TicTacToeTest" time="0.0"/>
-  <testcase name="insertCharTest" classname="is.aadoj.TicTacToe.TicTacToeTest" time="0.0"/>
+  <testcase name="insertCharWhereOccupiedByOpponent" classname="is.aadoj.TicTacToe.TicTacToeTest" time="0.009"/>
+  <testcase name="insertCharTest" classname="is.aadoj.TicTacToe.TicTacToeTest" time="0.008"/>
   <testcase name="gameFinishedShouldReturnFalseAfterSpecialCaseMove" classname="is.aadoj.TicTacToe.TicTacToeTest" time="0.0"/>
   <testcase name="gameEndsInTie" classname="is.aadoj.TicTacToe.TicTacToeTest" time="0.0"/>
-  <testcase name="insertCharLocationOutOfBoundsCheckMessage" classname="is.aadoj.TicTacToe.TicTacToeTest" time="0.0"/>
+  <testcase name="insertCharLocationOutOfBoundsCheckMessage" classname="is.aadoj.TicTacToe.TicTacToeTest" time="0.001"/>
   <testcase name="insertCharWhereOccupiedCheckMessage" classname="is.aadoj.TicTacToe.TicTacToeTest" time="0.0"/>
   <testcase name="printBoardTest" classname="is.aadoj.TicTacToe.TicTacToeTest" time="0.0"/>
-  <testcase name="gameFinishedShouldReturnFalseAfterNoMove" classname="is.aadoj.TicTacToe.TicTacToeTest" time="0.0"/>
+  <testcase name="gameFinishedShouldReturnFalseAfterNoMove" classname="is.aadoj.TicTacToe.TicTacToeTest" time="0.001"/>
   <testcase name="playerOneWonTest" classname="is.aadoj.TicTacToe.TicTacToeTest" time="0.0"/>
   <testcase name="playerTwoWonTest" classname="is.aadoj.TicTacToe.TicTacToeTest" time="0.0"/>
-  <testcase name="insertCharWhereOccupiedBySelf" classname="is.aadoj.TicTacToe.TicTacToeTest" time="0.0"/>
+  <testcase name="insertCharWhereOccupiedBySelf" classname="is.aadoj.TicTacToe.TicTacToeTest" time="0.001"/>
   <testcase name="insertCharLocationOutOfBoundsBelow" classname="is.aadoj.TicTacToe.TicTacToeTest" time="0.0"/>
   <testcase name="insertCharLocationOutOfBounds" classname="is.aadoj.TicTacToe.TicTacToeTest" time="0.0"/>
   <testcase name="gameFinishedShouldReturnTrueForDiagonalO048" classname="is.aadoj.TicTacToe.TicTacToeTest" time="0.0"/>
-  <testcase name="gameFinishedShouldReturnTrueForDiagonalO246" classname="is.aadoj.TicTacToe.TicTacToeTest" time="0.0"/>
-  <testcase name="gameFinishedShouldReturnTrueForDiagonalX048" classname="is.aadoj.TicTacToe.TicTacToeTest" time="0.016"/>
-  <testcase name="gameFinishedShouldReturnTrueForDiagonalX246" classname="is.aadoj.TicTacToe.TicTacToeTest" time="0.0"/>
+  <testcase name="gameFinishedShouldReturnTrueForDiagonalO246" classname="is.aadoj.TicTacToe.TicTacToeTest" time="0.001"/>
+  <testcase name="gameFinishedShouldReturnTrueForDiagonalX048" classname="is.aadoj.TicTacToe.TicTacToeTest" time="0.002"/>
+  <testcase name="gameFinishedShouldReturnTrueForDiagonalX246" classname="is.aadoj.TicTacToe.TicTacToeTest" time="0.001"/>
   <system-out><![CDATA[]]></system-out>
   <system-err><![CDATA[]]></system-err>
 </testsuite>
