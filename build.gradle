@@ -14,17 +14,21 @@ apply plugin: 'jacoco'
 
 mainClassName = "is.aadoj.TicTacToe.TicTacToeConsoleUI"
 
+
+
 //Run this to get code coverage report, has to be run after gradle check
+
 jacocoTestReport {
-    group = "Reporting"
-    description = "Generate Jacoco coverage reports after running tests."
-    reports {
+     println 'hallo'
+     group = "Reporting"
+     description = "Generate Jacoco coverage reports after running tests."
+      reports {
 	    xml.enabled false
 	    csv.enabled false
-	    html.destination "${buildDir}/jacocoCoverageReportHtml"
-  }
+        html.destination "${buildDir}/reports/jacoco"
+      }
 }
-
+test.finalizedBy(jacocoTestReport)
 
 // In this section you declare where to find the dependencies of your project
 repositories {
@@ -38,7 +42,7 @@ mainClassName = "is.aadoj.TicTacToe.TicTacToeConsoleUI"
 installApp {
     destinationDir = file('../install/')
 }
-
+build.finalizedBy(installApp)
 // In this section you declare the dependencies for your production and test code
 dependencies {
     // The production code uses the SLF4J logging API at compile time
@@ -59,3 +63,7 @@ jar {
         attributes 'Main-Class': 'is.aadoj.TicTacToe.TicTacToeConsoleUI'
     }
 }
+
+//buildscript{
+//    apply from: "../Late-Term-Assignment/jacoco.gradle"
+//}
