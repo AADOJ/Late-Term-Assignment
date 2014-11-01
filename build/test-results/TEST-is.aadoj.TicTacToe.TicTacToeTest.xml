@@ -1,8 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
+<<<<<<< HEAD
 <testsuite name="is.aadoj.TicTacToe.TicTacToeTest" tests="17" skipped="0" failures="0" errors="0" timestamp="2014-11-01T22:00:38" hostname="Hreysi" time="0.046">
   <properties/>
   <testcase name="insertCharWhereOccupiedByOpponent" classname="is.aadoj.TicTacToe.TicTacToeTest" time="0.009"/>
   <testcase name="insertCharTest" classname="is.aadoj.TicTacToe.TicTacToeTest" time="0.008"/>
+=======
+<testsuite name="is.aadoj.TicTacToe.TicTacToeTest" tests="17" skipped="0" failures="0" errors="0" timestamp="2014-11-01T21:58:33" hostname="Sisso-PC" time="0.01">
+  <properties/>
+  <testcase name="insertCharWhereOccupiedByOpponent" classname="is.aadoj.TicTacToe.TicTacToeTest" time="0.0"/>
+  <testcase name="insertCharTest" classname="is.aadoj.TicTacToe.TicTacToeTest" time="0.01"/>
+>>>>>>> b07983b71229618f470a3a6606d25538250910a2
   <testcase name="gameFinishedShouldReturnFalseAfterSpecialCaseMove" classname="is.aadoj.TicTacToe.TicTacToeTest" time="0.0"/>
   <testcase name="gameEndsInTie" classname="is.aadoj.TicTacToe.TicTacToeTest" time="0.0"/>
   <testcase name="insertCharLocationOutOfBoundsCheckMessage" classname="is.aadoj.TicTacToe.TicTacToeTest" time="0.001"/>
@@ -15,9 +22,15 @@
   <testcase name="insertCharLocationOutOfBoundsBelow" classname="is.aadoj.TicTacToe.TicTacToeTest" time="0.0"/>
   <testcase name="insertCharLocationOutOfBounds" classname="is.aadoj.TicTacToe.TicTacToeTest" time="0.0"/>
   <testcase name="gameFinishedShouldReturnTrueForDiagonalO048" classname="is.aadoj.TicTacToe.TicTacToeTest" time="0.0"/>
+<<<<<<< HEAD
   <testcase name="gameFinishedShouldReturnTrueForDiagonalO246" classname="is.aadoj.TicTacToe.TicTacToeTest" time="0.001"/>
   <testcase name="gameFinishedShouldReturnTrueForDiagonalX048" classname="is.aadoj.TicTacToe.TicTacToeTest" time="0.002"/>
   <testcase name="gameFinishedShouldReturnTrueForDiagonalX246" classname="is.aadoj.TicTacToe.TicTacToeTest" time="0.001"/>
+=======
+  <testcase name="gameFinishedShouldReturnTrueForDiagonalO246" classname="is.aadoj.TicTacToe.TicTacToeTest" time="0.0"/>
+  <testcase name="gameFinishedShouldReturnTrueForDiagonalX048" classname="is.aadoj.TicTacToe.TicTacToeTest" time="0.0"/>
+  <testcase name="gameFinishedShouldReturnTrueForDiagonalX246" classname="is.aadoj.TicTacToe.TicTacToeTest" time="0.0"/>
+>>>>>>> b07983b71229618f470a3a6606d25538250910a2
   <system-out><![CDATA[]]></system-out>
   <system-err><![CDATA[]]></system-err>
 </testsuite>
