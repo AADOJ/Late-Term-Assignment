@@ -1,4 +1,10 @@
 language: java
 jdk:
- - openjdk7
- - oraclejdk7
+- openjdk7
+- oraclejdk7
+deploy:
+  provider: heroku
+  api_key:
+    secure: vR3KWhMczq3wR14H/MeRNK1wtmuWQY4vvVrSqooUJwU5z70sW36B7t4hKjlITh/zLeBlvpRQB6U/La7FivXfEXey9LHj14GfMrnkkVL7Y4erXZ/O5ynIa1tDUx75Jb2bcFaQRipqmJ2yUMfSB8qbcEIOKtLauzokB1y6CLAiS3s=
+  app: aadoj
+  on: master
