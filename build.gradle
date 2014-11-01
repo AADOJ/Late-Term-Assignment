@@ -12,7 +12,7 @@ apply plugin: 'java'
 apply plugin: 'application'
 apply plugin: 'jacoco'
 
-mainClassName = "is.aadoj.TicTacToe.TicTacToeConsoleUI"
+mainClassName = "is.aadoj.TicTacToe.TicTacToeWebUI"
 
 //Run this to get code coverage report, has to be run after gradle check
 jacocoTestReport {
@@ -33,7 +33,7 @@ repositories {
     jcenter()
 }
 
-mainClassName = "is.aadoj.TicTacToe.TicTacToeConsoleUI"
+mainClassName = "is.aadoj.TicTacToe.TicTacToeWebUI"
 
 installApp {
     destinationDir = file('../install/')
@@ -56,6 +56,6 @@ dependencies {
 
 jar {
     manifest {
-        attributes 'Main-Class': 'is.aadoj.TicTacToe.TicTacToeConsoleUI'
+        attributes 'Main-Class': 'is.aadoj.TicTacToe.TicTacToeWebUI'
     }
 }

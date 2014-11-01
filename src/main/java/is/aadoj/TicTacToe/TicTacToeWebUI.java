@@ -34,7 +34,6 @@ public class TicTacToeWebUI implements SparkApplication {
                     try
                     {
                         game.insertChar(number);
-                        return new Gson().toJson(board);
                     }
                     catch(TicTacToeException ex)
                     {
@@ -42,14 +41,16 @@ public class TicTacToeWebUI implements SparkApplication {
                     }
                 }
                 Result r;
-                if (game.gameFinished*()) r = new Result(true, game.whoWon);
+                if (game.gameFinished()) r = new Result(true, game.whoWon());
                 else r = new Result(false, 0);
                 return gson.toJson(r);
                 
             }
         });
 
-        private class Result
+        
+    }
+    private class Result
         {
             private boolean gameFinished;
             private int winner;
@@ -59,5 +60,4 @@ public class TicTacToeWebUI implements SparkApplication {
                 winner = whoWon;
             }
         }
-    }
 }
