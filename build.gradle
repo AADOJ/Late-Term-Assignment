@@ -79,10 +79,10 @@ task selenium(type: Test, dependsOn: installApp) {
     doFirst {
         switch(ant.properties.os) {
             case 'unix':
-                '../install/bin/Late-Term-Assignment &'.execute()
+                'build/install/bin/Late-Term-Assignment &'.execute()
                 break
             case 'windows':
-                '..\\install\\bin\\Late-Term-Assignment.bat'.execute()
+                'build\\install\\bin\\Late-Term-Assignment.bat'.execute()
                 break
         }
     }
@@ -96,7 +96,7 @@ task seleniumXvfb(type: Test, dependsOn: installApp) {
 
     doFirst {
         'bin/xvfb start'.execute()
-        '../install/bin/Late-Term-Assignment &'.execute()
+        'build/install/bin/Late-Term-Assignment &'.execute()
     }
     
     doLast {
