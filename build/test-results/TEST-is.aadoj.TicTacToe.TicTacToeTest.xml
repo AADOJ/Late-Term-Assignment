@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="is.aadoj.TicTacToe.TicTacToeTest" tests="17" skipped="0" failures="0" errors="0" timestamp="2014-11-01T15:47:51" hostname="Hreysi" time="0.046">
+<testsuite name="is.aadoj.TicTacToe.TicTacToeTest" tests="17" skipped="0" failures="0" errors="0" timestamp="2014-11-01T18:39:29" hostname="Omar" time="0.016">
   <properties/>
-  <testcase name="insertCharWhereOccupiedByOpponent" classname="is.aadoj.TicTacToe.TicTacToeTest" time="0.015"/>
+  <testcase name="insertCharWhereOccupiedByOpponent" classname="is.aadoj.TicTacToe.TicTacToeTest" time="0.0"/>
   <testcase name="insertCharTest" classname="is.aadoj.TicTacToe.TicTacToeTest" time="0.0"/>
   <testcase name="gameFinishedShouldReturnFalseAfterSpecialCaseMove" classname="is.aadoj.TicTacToe.TicTacToeTest" time="0.0"/>
   <testcase name="gameEndsInTie" classname="is.aadoj.TicTacToe.TicTacToeTest" time="0.0"/>
@@ -16,7 +16,7 @@
   <testcase name="insertCharLocationOutOfBounds" classname="is.aadoj.TicTacToe.TicTacToeTest" time="0.0"/>
   <testcase name="gameFinishedShouldReturnTrueForDiagonalO048" classname="is.aadoj.TicTacToe.TicTacToeTest" time="0.0"/>
   <testcase name="gameFinishedShouldReturnTrueForDiagonalO246" classname="is.aadoj.TicTacToe.TicTacToeTest" time="0.0"/>
-  <testcase name="gameFinishedShouldReturnTrueForDiagonalX048" classname="is.aadoj.TicTacToe.TicTacToeTest" time="0.0"/>
+  <testcase name="gameFinishedShouldReturnTrueForDiagonalX048" classname="is.aadoj.TicTacToe.TicTacToeTest" time="0.016"/>
   <testcase name="gameFinishedShouldReturnTrueForDiagonalX246" classname="is.aadoj.TicTacToe.TicTacToeTest" time="0.0"/>
   <system-out><![CDATA[]]></system-out>
   <system-err><![CDATA[]]></system-err>
