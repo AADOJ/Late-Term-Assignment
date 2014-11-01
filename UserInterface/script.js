@@ -1,4 +1,6 @@
-var turn 
+var turn;
+var gameArray = new Array(9,9,9,9,9,9,9,9,9);
+var round = 0;
 
 
 $(document).ready(function(){
@@ -8,9 +10,22 @@ $(document).ready(function(){
 	$(".tile").click(function(){
 		//tile number is a type string
 		var tileNum = $(this).attr("data-tile");
+		ifOccupied(tileNum);
 		var response = InsertIntoTile(tileNum);
-
 		decideUpponResponse(response, tileNum);
+
+		$.ajax({
+			type: "POST",
+			url: "/id",
+			data: 'id=' + JSON.stringify(gameArray),
+			dataType: "json",
+			success: function(){
+				alert("Success");
+			},
+			failure: function(){
+				alert("Fail");
+			} 
+		});
 
 	});
 
@@ -35,6 +50,7 @@ function messageToUser(message){
 
 function restart(){
 	
+	turn = 1;
 	$("#status").text("");
 	$("#status").slideUp();
 	//ajax reset api board
@@ -57,10 +73,21 @@ function drawOnBoard(tileNum){
 	
 	var tileID = "#tile" + tileNum;
 	
-	if(turn === 1){
-		$(tileID).text("X");
-	} else {
-		$(tileID).text("O");
+	if(ifOccupied(tileNum)){
+		messageToUser("This slot is occupied");
+		turn = turn - 1;
+	}
+	else{
+		if(turn === 1){
+			$(tileID).text("X");
+			gameArray[round] = tileNum;
+		} else {
+			$(tileID).text("O");
+			gameArray[round] = tileNum;
+		}
+		if(round >= 3)
+			checkWin(gameArray);
+		round++;
 	}
 }
 
@@ -81,4 +108,11 @@ function decideUpponResponse(response, tileNum){
 		} else {
 			messageToUser(response);
 		}
+}
+
+function ifOccupied(tileNum) {
+	if($("#tile" + tileNum).html() != '&nbsp;')
+		return true;
+	else
+		return false;
 }
