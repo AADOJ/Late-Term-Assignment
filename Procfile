@@ -1,1 +1,1 @@
-web: ../install/bin/Late-Term-Assignment
+web: build/install/Late-Term-Assignment/bin/Late-Term-Assignment
