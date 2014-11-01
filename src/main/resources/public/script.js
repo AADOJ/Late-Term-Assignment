@@ -13,7 +13,7 @@ $(document).ready(function(){
 		if(!boardLocked && !ifOccupied(tileNum)){
 			drawOnBoard(tileNum);
 			ajaxCall();
-		} else if(ifOccupied(tileNum)) {
+		} else if(!boardLocked && ifOccupied(tileNum)) {
 			messageToUser("Tile is occupied!");
 		}
 
