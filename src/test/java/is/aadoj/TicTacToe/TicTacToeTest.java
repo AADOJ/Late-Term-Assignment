@@ -169,6 +169,14 @@ public class TicTacToeTest
 		assertFalse(game.gameFinished());
 	}
 	@Test
+	public void gameFinishedShouldReturnFalseAfterSpecialCaseMove() throws TicTacToeException
+	{
+		TicTacToe game = new TicTacToe();
+		game.insertChar(0);
+		game.insertChar(2);
+		assertFalse(game.gameFinished());
+	}
+	@Test
 	public void gameFinishedShouldReturnTrueForDiagonalX246() throws TicTacToeException
 	{
 		TicTacToe game = new TicTacToe();
@@ -221,7 +229,6 @@ public class TicTacToeTest
 		game.insertChar(0);
 		game.insertChar(3);
 		game.insertChar(1);
-		game.insertChar(4);
 		assertTrue(game.gameFinished());
 	}
 	public void gameFinishedShouldReturnTrueForOLine0To2() throws TicTacToeException

@@ -11,20 +11,24 @@
 apply plugin: 'java'
 apply plugin: 'application'
 apply plugin: 'jacoco'
+apply plugin: 'pmd'
 
 mainClassName = "is.aadoj.TicTacToe.TicTacToeWebUI"
 
+
+
 //Run this to get code coverage report, has to be run after gradle check
+
 jacocoTestReport {
-    group = "Reporting"
-    description = "Generate Jacoco coverage reports after running tests."
-    reports {
+     group = "Reporting"
+     description = "Generate Jacoco coverage reports after running tests."
+      reports {
 	    xml.enabled false
 	    csv.enabled false
-	    html.destination "${buildDir}/jacocoCoverageReportHtml"
-  }
+        html.destination "${buildDir}/reports/jacoco"
+      }
 }
-
+test.finalizedBy(jacocoTestReport)
 
 // In this section you declare where to find the dependencies of your project
 repositories {
@@ -38,7 +42,7 @@ mainClassName = "is.aadoj.TicTacToe.TicTacToeWebUI"
 installApp {
     destinationDir = file('../install/')
 }
-
+build.finalizedBy(installApp)
 // In this section you declare the dependencies for your production and test code
 dependencies {
     // The production code uses the SLF4J logging API at compile time
@@ -59,3 +63,4 @@ jar {
         attributes 'Main-Class': 'is.aadoj.TicTacToe.TicTacToeWebUI'
     }
 }
+
