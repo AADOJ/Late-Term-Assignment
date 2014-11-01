@@ -11,6 +11,7 @@
 apply plugin: 'java'
 apply plugin: 'application'
 apply plugin: 'jacoco'
+apply plugin: 'pmd'
 
 mainClassName = "is.aadoj.TicTacToe.TicTacToeConsoleUI"
 
@@ -19,7 +20,6 @@ mainClassName = "is.aadoj.TicTacToe.TicTacToeConsoleUI"
 //Run this to get code coverage report, has to be run after gradle check
 
 jacocoTestReport {
-     println 'hallo'
      group = "Reporting"
      description = "Generate Jacoco coverage reports after running tests."
       reports {
@@ -67,3 +67,6 @@ jar {
 //buildscript{
 //    apply from: "../Late-Term-Assignment/jacoco.gradle"
 //}
+ 
+//def sonarServerUrl = "your.sonar.server.url"
+
