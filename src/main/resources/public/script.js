@@ -1,31 +1,22 @@
 var turn;
-var gameArray = new Array(9,9,9,9,9,9,9,9,9);
-var round = 0;
+var gameArray;
+var round;
+var boardLocked;
 
 
 $(document).ready(function(){
-	turn = iniz();
-	$("#status").hide();
-	
+	iniz();
+
 	$(".tile").click(function(){
 		//tile number is a type string
 		var tileNum = $(this).attr("data-tile");
-		ifOccupied(tileNum);
-		var response = InsertIntoTile(tileNum);
-		decideUpponResponse(response, tileNum);
+		if(!boardLocked && !ifOccupied(tileNum)){
+			drawOnBoard(tileNum);
+			ajaxCall();
+		} else if(ifOccupied(tileNum)) {
+			messageToUser("Tile is occupied!");
+		}
 
-		$.ajax({
-			type: "POST",
-			url: "/id",
-			data: 'id=' + JSON.stringify(gameArray),
-			dataType: "json",
-			success: function(){
-				alert("Success");
-			},
-			failure: function(){
-				alert("Fail");
-			} 
-		});
 
 	});
 
@@ -35,29 +26,18 @@ $(document).ready(function(){
 
 });
 
-function InsertIntoTile(tileNum){
-	//TODO: create ajax
-	//TODO: Deside callback
-
-	return "OK";
-}
-
 function messageToUser(message){
-
 	$("#status").text(message);
-	$("#status").slideDown();
 }
 
 function restart(){
-	
-	turn = 1;
-	$("#status").text("");
-	$("#status").slideUp();
-	//ajax reset api board
 
+	messageToUser("It's player-X turn!");
 	$(".tile").each(function(){
 		$(this).html("&nbsp;");
-	})
+	});
+
+	iniz();
 }
 
 function changeTurn(){
@@ -72,47 +52,55 @@ function changeTurn(){
 function drawOnBoard(tileNum){
 	
 	var tileID = "#tile" + tileNum;
-	
-	if(ifOccupied(tileNum)){
-		messageToUser("This slot is occupied");
-		turn = turn - 1;
+
+	if(turn === 1){
+		$(tileID).text("X");
+		gameArray[round] = tileNum;
+		messageToUser("It's player-O turn!");
+	} else {
+		$(tileID).text("O");
+		gameArray[round] = tileNum;
+		messageToUser("It's player-X turn!");
 	}
-	else{
-		if(turn === 1){
-			$(tileID).text("X");
-			gameArray[round] = tileNum;
-		} else {
-			$(tileID).text("O");
-			gameArray[round] = tileNum;
-		}
-		if(round >= 3)
-			checkWin(gameArray);
-		round++;
-	}
+	changeTurn();
+	round++;
 }
 
 function iniz(){
-	//make ajax call to ask for header content
-	var resp = "TicTacToe";
-	$("#header").text(resp);
-	return 1;
-
-	//make ajax call to ask for header content
+	messageToUser("It's player-X turn!");
+	gameArray = new Array("9","9","9","9","9","9","9","9","9");
+	round = 0;
+	boardLocked = false;
+	turn = 1;
 }
 
-function decideUpponResponse(response, tileNum){
-		if(response === "OK"){
-			$("#status").slideUp();
-			drawOnBoard(tileNum);
-			changeTurn();
+function decideUpponResponse(response){
+	
+	if(response.gameFinished){
+		boardLocked = true;
+		if(response.winner == 1){
+			messageToUser("Winner is X!");
+		} else if(response.winner == 2) {
+			messageToUser("Winner is O!");
 		} else {
-			messageToUser(response);
+			messageToUser("It's a draw!");
 		}
+
+	}
 }
 
 function ifOccupied(tileNum) {
 	if($("#tile" + tileNum).html() != '&nbsp;')
 		return true;
-	else
+	else {
 		return false;
+	}
+}
+
+function ajaxCall(){
+
+	 $.post("/id", 'id=' + JSON.stringify(gameArray) )
+        .done(function(data) {
+            decideUpponResponse(jQuery.parseJSON(data));
+        }); 
 }

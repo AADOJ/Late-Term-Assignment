@@ -18,12 +18,14 @@ public class TicTacToeWebUI implements SparkApplication {
     }
 
     public void init(){
-        final TicTacToe game = new TicTacToe();
+        
         
 
         post(new Route("/id"){
+
             @Override
             public Object handle(Request request, Response response){
+                TicTacToe game = new TicTacToe();
                 String jarray = request.queryParams("id");
                 Gson gson = new Gson();
                 int[] inputs = gson.fromJson(jarray, int[].class); 
@@ -37,12 +39,14 @@ public class TicTacToeWebUI implements SparkApplication {
                     }
                     catch(TicTacToeException ex)
                     {
+                        System.out.println(ex.getMessage());
                         return ex.getMessage();
                     }
                 }
                 Result r;
                 if (game.gameFinished()) r = new Result(true, game.whoWon());
-                else r = new Result(false, 0);
+                else r = new Result(false, 9);
+                System.out.println(gson.toJson(r));
                 return gson.toJson(r);
                 
             }

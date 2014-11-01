@@ -37,6 +37,7 @@ public class TicTacToe
 		if (round % 2 == 1) symbol = 'X';
 		else symbol = 'O';
 
+
 		if(board[location] == 'X' || board[location] == 'O') 
 		{
 			round--;
@@ -101,7 +102,7 @@ public class TicTacToe
 		}
 		if(board[1] == board[4] && board[4] == board[7])
 		{
-			if(board[2] != ' ')
+			if(board[1] != ' ')
 			return true;
 		}
 		if(board[2] == board[5] && board[5] == board[8])
