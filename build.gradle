@@ -37,8 +37,6 @@ repositories {
     jcenter()
 }
 
-mainClassName = "is.aadoj.TicTacToe.TicTacToeWebUI"
-
 installApp {
     destinationDir = file('../install/')
 }
