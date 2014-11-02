@@ -1,16 +1,11 @@
 package is.aadoj.TicTacToe;
 import java.util.Random;
 import java.lang.Math;
+import java.util.Date;
 
 public class TicTacToe
 {
-	public class TicTacToeException extends Exception
-	{
-		public TicTacToeException(String message)
-		{
-			super(message);
-		}
-	}
+	
 	private int round;
 	private char[] board;
 	private boolean p1Won;
@@ -28,19 +23,14 @@ public class TicTacToe
 		{
 			board[i] = ' ';
 		}
+		rand = new Random(new Date().getTime());
 	}
 
-	// constructor for human vs computer game
-	public TicTacToe(long seed)
-	{
+	public TicTacToe(long seed){
 		round = 0;
 		board = new char[9];
 		p1Won = false;
 		p2Won = false;
-		for(int i = 0; i < 9; i++)
-		{
-			board[i] = ' ';
-		}
 		rand = new Random(seed);
 	}
 
@@ -166,5 +156,22 @@ public class TicTacToe
 			+ board[3] + wall + board[4] + wall + board[5] + "\n" +  floor  + "\n"
 			+ board[6] + wall + board[7] + wall + board[8];
 		return boardString;
+	}
+
+	public void insertArray(int inputs[])throws TicTacToeException
+	{
+		for (int i = 0; i < 9; i++) {
+			int number = inputs[i];
+            if (number == 9) break;
+			try
+			{
+				insertChar(number);
+			}
+			catch(TicTacToeException ex)
+			{
+				throw new TicTacToeException(ex.getMessage());
+			}
+			
+		}
 	}
 }

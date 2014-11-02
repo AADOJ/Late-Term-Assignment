@@ -2,6 +2,8 @@ var turn;
 var gameArray;
 var round;
 var boardLocked;
+var xWins = 0;
+var oWins = 0;
 
 
 $(document).ready(function(){
@@ -16,13 +18,20 @@ $(document).ready(function(){
 		} else if(!boardLocked && ifOccupied(tileNum)) {
 			messageToUser("Tile is occupied!");
 		}
-
-
 	});
 
 	$("#restartButt").click(function(){
 		restart();
 	});
+
+	$("#newGame").click(function() {
+		newGame();
+	});
+
+	$("#chooseGame").click(function() {
+		window.location.href = "index.html";
+	});
+
 
 });
 
@@ -79,9 +88,13 @@ function decideUpponResponse(response){
 	if(response.gameFinished){
 		boardLocked = true;
 		if(response.winner == 1){
+			xWins++;
 			messageToUser("Winner is X!");
+			$("#xwins").html(xWins);
 		} else if(response.winner == 2) {
+			oWins++;
 			messageToUser("Winner is O!");
+			$("#owins").text(oWins);
 		} else {
 			messageToUser("It's a draw!");
 		}
@@ -99,8 +112,16 @@ function ifOccupied(tileNum) {
 
 function ajaxCall(){
 
-	 $.post("/id", 'id=' + JSON.stringify(gameArray) )
+	 $.post("/player/id", 'id=' + JSON.stringify(gameArray) )
         .done(function(data) {
             decideUpponResponse(jQuery.parseJSON(data));
         }); 
+}
+
+function newGame() {
+	xWins = 0;
+	oWins = 0;
+	restart();
+	$("#xwins").html(oWins);
+	$("#owins").html(xWins);
 }
