@@ -104,6 +104,25 @@ public class TicTacToeTest
 		game.insertChar(-1);
 	}
 
+	@Test(expected = TicTacToeException.class)
+	public void insertArrayTest() throws TicTacToeException
+	{
+		TicTacToe dame = new TicTacToe();
+		int data[];
+		data=new int[] {1,0,1,9};
+		dame.insertArray(data);
+	}
+
+	@Test
+	public void insertArrayFull()throws TicTacToeException
+	{
+		TicTacToe dame = new TicTacToe();
+		int data[];
+		data=new int[] {1,0,4,6,8,2,7,3,5};
+		dame.insertArray(data);
+		assertEquals(dame.gameFinished(), true);
+	}
+
 	@Test
 	public void insertCharLocationOutOfBoundsCheckMessage()
 	{
