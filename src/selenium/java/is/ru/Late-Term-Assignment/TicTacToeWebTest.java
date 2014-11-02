@@ -14,7 +14,7 @@ import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.support.ui.*;
 import org.openqa.selenium.WebDriver;
 
-public class ChuckWebTest {
+public class TicTacToeWebTest {
 
     static WebDriver driver;
     static String baseUrl;
