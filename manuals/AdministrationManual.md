@@ -52,7 +52,7 @@ Heroku login
 ```sh
 Heroku create appname
 ```
-where appname is what you want your heroku app to be called. Note that you can skipp adding a name for the app and heroku will provide you with a random one
+where appname is what you want your heroku app to be called. Note that you can skip adding a name for the app and heroku will provide you with a random one
 
 ```sh
 ./gradlew installApp // for *nix
