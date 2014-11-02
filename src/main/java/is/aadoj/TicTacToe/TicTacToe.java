@@ -1,6 +1,7 @@
 package is.aadoj.TicTacToe;
 import java.util.Random;
 import java.lang.Math;
+import java.util.Date;
 
 public class TicTacToe
 {
@@ -28,19 +29,14 @@ public class TicTacToe
 		{
 			board[i] = ' ';
 		}
+		rand = new Random(new Date().getTime());
 	}
 
-	// constructor for human vs computer game
-	public TicTacToe(long seed)
-	{
+	public TicTacToe(long seed){
 		round = 0;
 		board = new char[9];
 		p1Won = false;
 		p2Won = false;
-		for(int i = 0; i < 9; i++)
-		{
-			board[i] = ' ';
-		}
 		rand = new Random(seed);
 	}
 

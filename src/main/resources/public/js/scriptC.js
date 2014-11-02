@@ -77,19 +77,22 @@ function iniz(){
 }
 
 function decideUpponResponse(response){
-	
+	var tileNum = response.computerMove;
 	if(response.gameFinished){
 		boardLocked = true;
 		if(response.winner == 1){
+
 			messageToUser("You win!");
 		} else if(response.winner == 2) {
+			drawOnBoard(tileNum);
 			messageToUser("Computer win!");
 		} else {
+			drawOnBoard(tileNum);
 			messageToUser("It's a draw!");
 		}
 
 	}else{
-		var tileNum = response.computerMove();
+		
 		drawOnBoard(tileNum);
 	}
 }
@@ -106,7 +109,9 @@ function ajaxCall(){
 	boardLocked = true;
 	 $.post("/computer/id", 'id=' + JSON.stringify(gameArray) )
         .done(function(data) {
-            decideUpponResponse(jQuery.parseJSON(data));
-            boardLocked = false;
+        	var response = jQuery.parseJSON(data);
+            decideUpponResponse(response);
+            if(!response.gameFinished)
+            	boardLocked = false;
         }); 
 }

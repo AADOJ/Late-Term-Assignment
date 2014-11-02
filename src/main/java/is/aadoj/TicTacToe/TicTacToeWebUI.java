@@ -6,6 +6,7 @@ import spark.servlet.SparkApplication;
 import com.google.gson.Gson;
 import is.aadoj.TicTacToe.TicTacToe.TicTacToeException;
 
+
 public class TicTacToeWebUI implements SparkApplication {
     public static void main(String[] args){
         staticFileLocation("/public");
@@ -21,11 +22,7 @@ public class TicTacToeWebUI implements SparkApplication {
         
         
 
-<<<<<<< HEAD
         post(new Route("player/id"){
-=======
-        post(new Route("/player/id"){
->>>>>>> 68f0180a59259ccaf8d5fd1aae8278fd9f99389b
 
             @Override
             public Object handle(Request request, Response response){
@@ -33,23 +30,16 @@ public class TicTacToeWebUI implements SparkApplication {
                 String jarray = request.queryParams("id");
                 Gson gson = new Gson();
                 int[] inputs = gson.fromJson(jarray, int[].class); 
-                for (int i = 0; i < 9; i++) 
-                {
-                    int number = inputs[i];
-                    if (number == 9) break;
-                    try
-                    {
-                        game.insertChar(number);
-                    }
-                    catch(TicTacToeException ex)
-                    {
-                        System.out.println(ex.getMessage());
-                        return ex.getMessage();
-                    }
+                try{
+                	game.insertArray(inputs);
+                } catch (TicTacToeException ex){
+                	System.out.println(ex.getMessage());
+                    return ex.getMessage();
                 }
+                
                 Result r;
                 if (game.gameFinished()) r = new Result(true, game.whoWon(), 9);
-                else r = new Result(false, 9);
+                else r = new Result(false, 9, 9);
                 System.out.println(gson.toJson(r));
                 return gson.toJson(r);
                 
@@ -65,28 +55,25 @@ public class TicTacToeWebUI implements SparkApplication {
                 String jarray = request.queryParams("id");
                 Gson gson = new Gson();
                 int[] inputs = gson.fromJson(jarray, int[].class); 
-                for (int i = 0; i < 9; i++) 
-                {
-                    int number = inputs[i];
-                    if (number == 9) break;
-                    try
-                    {
-                        game.insertChar(number);
-                    }
-                    catch(TicTacToeException ex)
-                    {
-                        System.out.println(ex.getMessage());
-                        return ex.getMessage();
-                    }
+                try{
+                	game.insertArray(inputs);
+                } catch (TicTacToeException ex){
+                	System.out.println(ex.getMessage());
+                    return ex.getMessage();
                 }
                 int ComMove = 9;
                 if(!game.gameFinished()) {
-                	ComMove = game.getComputerMove(new Date());
-                	game.insertChar(ComMove);
+                	try{
+                		ComMove = game.getComputerMove();
+                		game.insertChar(ComMove);
+                	} catch (TicTacToeException ex){
+                		System.out.println(ex.getMessage());
+                    	return ex.getMessage();
+                	}
                 }
                 Result r;
                 if (game.gameFinished()) r = new Result(true, game.whoWon(), ComMove);
-                else r = new Result(false, ComMove);
+                else r = new Result(false, 9, ComMove);
                 System.out.println(gson.toJson(r));
                 return gson.toJson(r);
                 

@@ -108,11 +108,7 @@ function ifOccupied(tileNum) {
 
 function ajaxCall(){
 
-<<<<<<< HEAD:src/main/resources/public/script.js
-	 $.post("player/id", 'id=' + JSON.stringify(gameArray) )
-=======
 	 $.post("/player/id", 'id=' + JSON.stringify(gameArray) )
->>>>>>> 68f0180a59259ccaf8d5fd1aae8278fd9f99389b:src/main/resources/public/js/scriptH.js
         .done(function(data) {
             decideUpponResponse(jQuery.parseJSON(data));
         }); 
