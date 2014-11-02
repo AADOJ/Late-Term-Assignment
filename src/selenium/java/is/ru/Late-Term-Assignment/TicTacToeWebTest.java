@@ -116,7 +116,7 @@ public class TicTacToeWebTest {
   }
 
 //Human vs Computer tests
-  @Test
+ /* @Test
   public void testXWinsCom() throws Exception {
     driver.get(baseUrl + "humanvscomputer");
 //    for (int second = 0;; second++) {
@@ -172,7 +172,7 @@ public class TicTacToeWebTest {
     assertEquals("X", driver.findElement(By.id("tile6")).getText());
     assertEquals("Winner is X!", driver.findElement(By.id("status")).getText());
   }
-
+*/
   private boolean isElementPresent(By by) {
     try {
       driver.findElement(by);
