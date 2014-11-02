@@ -5,13 +5,7 @@ import java.util.Date;
 
 public class TicTacToe
 {
-	public class TicTacToeException extends Exception
-	{
-		public TicTacToeException(String message)
-		{
-			super(message);
-		}
-	}
+	
 	private int round;
 	private char[] board;
 	private boolean p1Won;
