@@ -1,7 +1,13 @@
 Development Manual for TicTactoe
 =========
  
-The source control client used for this project is GitHub. Our repository is public so anyone can access it at https://github.com/AADOJ/Late-Term-Assignment/
+Our application is hosted as an open repository on github.com on the following url: https://github.com/AADOJ/Late-Term-Assignment. You will need jdk 1.7 installed on your machine in order to deploy and run our application.
+  
+You can use the native git command to clone the repository to your machine from the console by running the following command:
+```sh
+git clone https://github.com/AADOJ/Late-Term-Assignment.git
+```
+Or you can go the above url and download a zip file containing the application.
   
 The workflow is based on everyone having their own branch, so if you work on this project you should do the following:
  

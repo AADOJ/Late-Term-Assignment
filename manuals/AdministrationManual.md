@@ -46,11 +46,21 @@ To deploy the application you need the heroku toolbelt https://toolbelt.heroku.c
 
 To begin with you need to clone the git repository (it is not sufficient to download the zip file)
 You then need to input the following commands in the root of the project:
-* Heroku login
-* Heroku create appname (where appname is what you want your heroku app to be called. Note that you can skipp adding a name for the app and heroku will provide you with a random one)
-* For windows users: gradlew installApp. For unix users: ./gradlew installApp
-* git push heroku master
+```sh
+Heroku login
+```
+```sh
+Heroku create appname
+```
+where appname is what you want your heroku app to be called. Note that you can skipp adding a name for the app and heroku will provide you with a random one
 
+```sh
+./gradlew installApp // for *nix
+gradlew installApp   // for windows
+```
+```sh
+git push heroku master
+```
 
 Version
 ----
