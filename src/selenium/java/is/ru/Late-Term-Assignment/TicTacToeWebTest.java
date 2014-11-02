@@ -1,4 +1,4 @@
-package is.ru.sparkit;
+package is.aadoj.TicTacToe;
 
 import java.util.concurrent.TimeUnit;
 
@@ -42,14 +42,14 @@ public class TicTacToeWebTest {
         // Will be run after all tests in class have run
         driver.close();
     }
-
+/*
   @Before
   public void setUp() throws Exception {
     driver = new FirefoxDriver();
     baseUrl = "http://localhost:4567/";
     driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
   }
-
+*/
   @Test
   public void testTickTackToeWeb() throws Exception {
     driver.get(baseUrl + "/");
