@@ -5,6 +5,7 @@ import static spark.Spark.*;
 import spark.servlet.SparkApplication;
 import com.google.gson.Gson;
 import is.aadoj.TicTacToe.TicTacToeException;
+import is.aadoj.TicTacToe.Result;
 
 
 public class TicTacToeWebUI implements SparkApplication {
@@ -82,17 +83,4 @@ public class TicTacToeWebUI implements SparkApplication {
 
         
     }
-    private class Result
-        {
-            private boolean gameFinished;
-            private int winner;
-            private int computerMove;
-            public Result(boolean gameFin, int whoWon, int computerMov)
-            {
-                gameFinished = gameFin;
-                winner = whoWon;
-                computerMove = computerMov;
-
-            }
-        }
 }
