@@ -4,7 +4,7 @@ import spark.*;
 import static spark.Spark.*;
 import spark.servlet.SparkApplication;
 import com.google.gson.Gson;
-import is.aadoj.TicTacToe.TicTacToe.TicTacToeException;
+import is.aadoj.TicTacToe.TicTacToeException;
 
 
 public class TicTacToeWebUI implements SparkApplication {
