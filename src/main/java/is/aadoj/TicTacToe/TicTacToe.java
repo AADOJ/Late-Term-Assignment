@@ -1,4 +1,6 @@
 package is.aadoj.TicTacToe;
+import java.util.Random;
+import java.lang.Math;
 
 public class TicTacToe
 {
@@ -13,7 +15,9 @@ public class TicTacToe
 	private char[] board;
 	private boolean p1Won;
 	private boolean p2Won;
+	private Random rand; // in case of AI game
 
+	// constructor for human vs human game
 	public TicTacToe()
 	{
 		round = 0;
@@ -24,6 +28,20 @@ public class TicTacToe
 		{
 			board[i] = ' ';
 		}
+	}
+
+	// constructor for human vs computer game
+	public TicTacToe(long seed)
+	{
+		round = 0;
+		board = new char[9];
+		p1Won = false;
+		p2Won = false;
+		for(int i = 0; i < 9; i++)
+		{
+			board[i] = ' ';
+		}
+		rand = new Random(seed);
 	}
 
 	// inserts a symbol at target location
@@ -45,6 +63,25 @@ public class TicTacToe
 		board[location] = symbol;
 
 		return board;
+	}
+
+	// get the number of tile selected by AI
+	public int getComputerMove()
+	{
+		int location = Math.abs(rand.nextInt() % 9);
+		boolean occupied = true;
+		while(occupied)
+		{
+			if(board[location] == 'X' || board[location] == 'O')
+			{
+				location = Math.abs(rand.nextInt() % 9);
+			}
+			else
+			{
+				occupied = false;
+			}
+		}
+		return location;
 	}
 
 	public boolean gameFinished()
