@@ -21,7 +21,11 @@ public class TicTacToeWebUI implements SparkApplication {
         
         
 
+<<<<<<< HEAD
         post(new Route("player/id"){
+=======
+        post(new Route("/player/id"){
+>>>>>>> 68f0180a59259ccaf8d5fd1aae8278fd9f99389b
 
             @Override
             public Object handle(Request request, Response response){

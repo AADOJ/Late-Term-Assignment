@@ -2,6 +2,8 @@ var turn;
 var gameArray;
 var round;
 var boardLocked;
+var Xwins = 0;
+var Owins = 0;
 
 
 $(document).ready(function(){
@@ -17,11 +19,14 @@ $(document).ready(function(){
 			messageToUser("Tile is occupied!");
 		}
 
-
 	});
 
 	$("#restartButt").click(function(){
 		restart();
+	});
+
+	$("#newGame").click(function() {
+		newGame();
 	});
 
 });
@@ -79,9 +84,13 @@ function decideUpponResponse(response){
 	if(response.gameFinished){
 		boardLocked = true;
 		if(response.winner == 1){
+			Xwins++;
 			messageToUser("Winner is X!");
+			$("#xwins").html(Xwins);
 		} else if(response.winner == 2) {
+			Owins++;
 			messageToUser("Winner is O!");
+			$("#owins").text(Owins);
 		} else {
 			messageToUser("It's a draw!");
 		}
@@ -99,8 +108,20 @@ function ifOccupied(tileNum) {
 
 function ajaxCall(){
 
+<<<<<<< HEAD:src/main/resources/public/script.js
 	 $.post("player/id", 'id=' + JSON.stringify(gameArray) )
+=======
+	 $.post("/player/id", 'id=' + JSON.stringify(gameArray) )
+>>>>>>> 68f0180a59259ccaf8d5fd1aae8278fd9f99389b:src/main/resources/public/js/scriptH.js
         .done(function(data) {
             decideUpponResponse(jQuery.parseJSON(data));
         }); 
+}
+
+function newGame() {
+	Xwins = 0;
+	Owins = 0;
+	restart();
+	$("#xwins").html(Xwins);
+	$("#owins").html(Owins);
 }
