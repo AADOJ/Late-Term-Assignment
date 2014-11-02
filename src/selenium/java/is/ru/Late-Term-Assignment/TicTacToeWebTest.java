@@ -51,6 +51,14 @@ public class TicTacToeWebTest {
   }
 
   @Test
+  public void testTickTackToeWeb() throws Exception {
+    driver.get(baseUrl + "/");
+    assertEquals("TicTacToe", driver.getTitle());
+  }
+
+
+/*
+  @Test
   public void testXWins() throws Exception {
     driver.get(baseUrl + "/");
     for (int second = 0;; second++) {
@@ -106,7 +114,7 @@ public class TicTacToeWebTest {
     assertEquals("X", driver.findElement(By.id("tile6")).getText());
     assertEquals("Winner is X!", driver.findElement(By.id("status")).getText());
   }
-
+*/
   private boolean isElementPresent(By by) {
     try {
       driver.findElement(by);
