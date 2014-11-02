@@ -13,7 +13,7 @@ apply plugin: 'application'
 apply plugin: 'jacoco'
 apply plugin: 'pmd'
 
-mainClassName = "is.aadoj.TicTacToe.TicTacToeConsoleUI"
+mainClassName = "is.aadoj.TicTacToe.TicTacToeWebUI"
 
 
 
@@ -37,11 +37,9 @@ repositories {
     jcenter()
 }
 
-mainClassName = "is.aadoj.TicTacToe.TicTacToeConsoleUI"
-
-installApp {
-    destinationDir = file('../install/')
-}
+//installApp {
+//    destinationDir = file('../install/')
+//}
 build.finalizedBy(installApp)
 // In this section you declare the dependencies for your production and test code
 dependencies {
@@ -60,13 +58,8 @@ dependencies {
 
 jar {
     manifest {
-        attributes 'Main-Class': 'is.aadoj.TicTacToe.TicTacToeConsoleUI'
+        attributes 'Main-Class': 'is.aadoj.TicTacToe.TicTacToeWebUI'
     }
 }
 
-//buildscript{
-//    apply from: "../Late-Term-Assignment/jacoco.gradle"
-//}
- 
-//def sonarServerUrl = "your.sonar.server.url"
-
+task stage { dependsOn installApp }

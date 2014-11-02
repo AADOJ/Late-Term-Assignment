@@ -18,27 +18,90 @@ public class TicTacToeWebUI implements SparkApplication {
     }
 
     public void init(){
-        final TicTacToe game = new TicTacToe();
+        
         
 
-        post(new Route("/id"){
+        post(new Route("player/id"){
+
             @Override
             public Object handle(Request request, Response response){
-                Integer number = Integer.valueOf(request.queryParams("id"));
-                
-                try
+                TicTacToe game = new TicTacToe();
+                String jarray = request.queryParams("id");
+                Gson gson = new Gson();
+                int[] inputs = gson.fromJson(jarray, int[].class); 
+                for (int i = 0; i < 9; i++) 
                 {
-                    char[] board = game.insertChar(number);
-                    return new Gson().toJson(board);
+                    int number = inputs[i];
+                    if (number == 9) break;
+                    try
+                    {
+                        game.insertChar(number);
+                    }
+                    catch(TicTacToeException ex)
+                    {
+                        System.out.println(ex.getMessage());
+                        return ex.getMessage();
+                    }
                 }
-                catch(TicTacToeException ex)
-                {
-                    return ex.getMessage();
-                }
+                Result r;
+                if (game.gameFinished()) r = new Result(true, game.whoWon(), 9);
+                else r = new Result(false, 9);
+                System.out.println(gson.toJson(r));
+                return gson.toJson(r);
                 
             }
         });
 
+		
+        post(new Route("computer/id"){
 
+            @Override
+            public Object handle(Request request, Response response){
+                TicTacToe game = new TicTacToe();
+                String jarray = request.queryParams("id");
+                Gson gson = new Gson();
+                int[] inputs = gson.fromJson(jarray, int[].class); 
+                for (int i = 0; i < 9; i++) 
+                {
+                    int number = inputs[i];
+                    if (number == 9) break;
+                    try
+                    {
+                        game.insertChar(number);
+                    }
+                    catch(TicTacToeException ex)
+                    {
+                        System.out.println(ex.getMessage());
+                        return ex.getMessage();
+                    }
+                }
+                int ComMove = 9;
+                if(!game.gameFinished()) {
+                	ComMove = game.getComputerMove(new Date());
+                	game.insertChar(ComMove);
+                }
+                Result r;
+                if (game.gameFinished()) r = new Result(true, game.whoWon(), ComMove);
+                else r = new Result(false, ComMove);
+                System.out.println(gson.toJson(r));
+                return gson.toJson(r);
+                
+            }
+        });
+
+        
     }
+    private class Result
+        {
+            private boolean gameFinished;
+            private int winner;
+            private int computerMove;
+            public Result(boolean gameFin, int whoWon, int computerMov)
+            {
+                gameFinished = gameFin;
+                winner = whoWon;
+                computerMove = computerMov;
+
+            }
+        }
 }
