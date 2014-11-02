@@ -48,6 +48,11 @@ public class TicTacToeWebTest {
   @Test
   public void testXWins() throws Exception {
     driver.get(baseUrl + "/");
+    for (int second = 0;; second++) {
+        if (second >= 60) fail("timeout");
+        try { if (isElementPresent(By.id("tile0"))) break; } catch (Exception e) {}
+        Thread.sleep(1000);
+    }
     driver.findElement(By.id("tile0")).click();
     assertEquals("X", driver.findElement(By.id("tile0")).getText());
     driver.findElement(By.id("tile8")).click();
@@ -63,6 +68,11 @@ public class TicTacToeWebTest {
   @Test
   public void testTileIsOccupied() throws Exception {
     driver.get(baseUrl + "/");
+    for (int second = 0;; second++) {
+        if (second >= 60) fail("timeout");
+        try { if (isElementPresent(By.id("tile0"))) break; } catch (Exception e) {}
+        Thread.sleep(1000);
+    }
     driver.findElement(By.id("tile0")).click();
     driver.findElement(By.id("tile4")).click();
     driver.findElement(By.id("tile0")).click();
@@ -74,6 +84,11 @@ public class TicTacToeWebTest {
       @Test
   public void testBoardIsEmpty() throws Exception {
     driver.get(baseUrl + "/");
+    for (int second = 0;; second++) {
+        if (second >= 60) fail("timeout");
+        try { if (isElementPresent(By.id("tile0"))) break; } catch (Exception e) {}
+        Thread.sleep(1000);
+    }
     driver.findElement(By.id("tile0")).click();
     assertEquals("X", driver.findElement(By.id("tile0")).getText());
     driver.findElement(By.id("tile8")).click();
