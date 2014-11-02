@@ -1,11 +1,10 @@
 package is.aadoj.TicTacToe;
-import java.util.Random;
-import java.lang.Math;
 
 public class TicTacToe
 {
 	public class TicTacToeException extends Exception
 	{
+		public TicTacToeException() { }
 		public TicTacToeException(String message)
 		{
 			super(message);
@@ -15,9 +14,7 @@ public class TicTacToe
 	private char[] board;
 	private boolean p1Won;
 	private boolean p2Won;
-	private Random rand; // in case of AI game
 
-	// constructor for human vs human game
 	public TicTacToe()
 	{
 		round = 0;
@@ -30,20 +27,6 @@ public class TicTacToe
 		}
 	}
 
-	// constructor for human vs computer game
-	public TicTacToe(long seed)
-	{
-		round = 0;
-		board = new char[9];
-		p1Won = false;
-		p2Won = false;
-		for(int i = 0; i < 9; i++)
-		{
-			board[i] = ' ';
-		}
-		rand = new Random(seed);
-	}
-
 	// inserts a symbol at target location
 	public char[] insertChar(int location) throws TicTacToeException
 	{
@@ -54,8 +37,7 @@ public class TicTacToe
 		if (round % 2 == 1) symbol = 'X';
 		else symbol = 'O';
 
-
-		if(isOccupied(location)) 
+		if(board[location] == 'X' || board[location] == 'O') 
 		{
 			round--;
 			throw new TicTacToeException("This slot is occupied!");	
@@ -63,35 +45,6 @@ public class TicTacToe
 		board[location] = symbol;
 
 		return board;
-	}
-
-	private boolean isOccupied(int location)
-	{
-		return board[location] == 'X' || board[location] == 'O';
-	}
-
-	// get the number of tile selected by AI
-	public int getComputerMove()
-	{
-		int location = nextRandomInt();
-		boolean occupied = true;
-		while(occupied)
-		{
-			if(isOccupied(location))
-			{
-				location = nextRandomInt();
-			}
-			else
-			{
-				occupied = false;
-			}
-		}
-		return location;
-	}
-	// generates the next random location
-	private int nextRandomInt()
-	{
-		return Math.abs(rand.nextInt() % 9);
 	}
 
 	public boolean gameFinished()
@@ -111,40 +64,49 @@ public class TicTacToe
 			return true;
 		}
 		return false;
-
 	}
+	
 	private boolean checkLines()
 	{
-		if(board[0] == board[1] && board[1] == board[2] && board[0] != ' ')
+		
+		if(board[0] == board[1] && board[1] == board[2])
 		{
+			if(board[0] != ' ')
 			return true;
 		}
-		if(board[3] == board[4] && board[4] == board[5] && board[3] != ' ')
+		if(board[3] == board[4] && board[4] == board[5])
 		{
+			if(board[3] != ' ')
 			return true;
 		}
-		if(board[6] == board[7] && board[7] == board[8] && board[6] != ' ')
+		if(board[6] == board[7] && board[7] == board[8])
 		{
+			if(board[6] != ' ')
 			return true;
 		}
-		if(board[0] == board[4] && board[4] == board[8] && board[0] != ' ')
+		if(board[0] == board[4] && board[4] == board[8])
 		{
+			if(board[0] != ' ')
 			return true;
 		}
-		if(board[2] == board[4] && board[4] == board[6] && board[2] != ' ')
+		if(board[2] == board[4] && board[4] == board[6])
 		{
+			if(board[2] != ' ')
 			return true;
 		}
-		if(board[0] == board[3] && board[3] == board[6] && board[0] != ' ')
+		if(board[0] == board[3] && board[3] == board[6])
 		{
+			if(board[0] != ' ')
 			return true;
 		}
-		if(board[1] == board[4] && board[4] == board[7] && board[1] != ' ')
+		if(board[1] == board[4] && board[4] == board[7])
 		{
+			if(board[2] != ' ')
 			return true;
 		}
-		if(board[2] == board[5] && board[5] == board[8] && board[2] != ' ')
+		if(board[2] == board[5] && board[5] == board[8])
 		{
+			if(board[2] != ' ')
 			return true;
 		}
 		return false;
