@@ -6,6 +6,7 @@ import spark.servlet.SparkApplication;
 import com.google.gson.Gson;
 import is.aadoj.TicTacToe.TicTacToe.TicTacToeException;
 
+
 public class TicTacToeWebUI implements SparkApplication {
     public static void main(String[] args){
         staticFileLocation("/public");
@@ -21,7 +22,7 @@ public class TicTacToeWebUI implements SparkApplication {
         
         
 
-        post(new Route("/id"){
+        post(new Route("player/id"){
 
             @Override
             public Object handle(Request request, Response response){
@@ -29,23 +30,50 @@ public class TicTacToeWebUI implements SparkApplication {
                 String jarray = request.queryParams("id");
                 Gson gson = new Gson();
                 int[] inputs = gson.fromJson(jarray, int[].class); 
-                for (int i = 0; i < 9; i++) 
-                {
-                    int number = inputs[i];
-                    if (number == 9) break;
-                    try
-                    {
-                        game.insertChar(number);
-                    }
-                    catch(TicTacToeException ex)
-                    {
-                        System.out.println(ex.getMessage());
-                        return ex.getMessage();
-                    }
+                try{
+                	game.insertArray(inputs);
+                } catch (TicTacToeException ex){
+                	System.out.println(ex.getMessage());
+                    return ex.getMessage();
+                }
+                
+                Result r;
+                if (game.gameFinished()) r = new Result(true, game.whoWon(), 9);
+                else r = new Result(false, 9, 9);
+                System.out.println(gson.toJson(r));
+                return gson.toJson(r);
+                
+            }
+        });
+
+		
+        post(new Route("computer/id"){
+
+            @Override
+            public Object handle(Request request, Response response){
+                TicTacToe game = new TicTacToe();
+                String jarray = request.queryParams("id");
+                Gson gson = new Gson();
+                int[] inputs = gson.fromJson(jarray, int[].class); 
+                try{
+                	game.insertArray(inputs);
+                } catch (TicTacToeException ex){
+                	System.out.println(ex.getMessage());
+                    return ex.getMessage();
+                }
+                int ComMove = 9;
+                if(!game.gameFinished()) {
+                	try{
+                		ComMove = game.getComputerMove();
+                		game.insertChar(ComMove);
+                	} catch (TicTacToeException ex){
+                		System.out.println(ex.getMessage());
+                    	return ex.getMessage();
+                	}
                 }
                 Result r;
-                if (game.gameFinished()) r = new Result(true, game.whoWon());
-                else r = new Result(false, 9);
+                if (game.gameFinished()) r = new Result(true, game.whoWon(), ComMove);
+                else r = new Result(false, 9, ComMove);
                 System.out.println(gson.toJson(r));
                 return gson.toJson(r);
                 
@@ -58,10 +86,13 @@ public class TicTacToeWebUI implements SparkApplication {
         {
             private boolean gameFinished;
             private int winner;
-            public Result(boolean gameFin, int whoWon)
+            private int computerMove;
+            public Result(boolean gameFin, int whoWon, int computerMov)
             {
                 gameFinished = gameFin;
                 winner = whoWon;
+                computerMove = computerMov;
+
             }
         }
 }
