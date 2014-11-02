@@ -144,6 +144,37 @@ public class TicTacToeTest
 		assertEquals(2, game.whoWon());
 	}
 
+	@Test
+	public void humanPlayerWinsVsComputer() throws TicTacToeException
+	{
+		int seed = 1337;
+		TicTacToe game = new TicTacToe(seed);
+		game.insertChar(1);
+		game.insertChar(game.getComputerMove()); // should generate 2
+		game.insertChar(4);
+		game.insertChar(game.getComputerMove()); // should generate 0
+		game.insertChar(3);
+		game.insertChar(game.getComputerMove()); // should generate 5
+		game.insertChar(7);
+		assertTrue(game.gameFinished());
+		assertEquals(1, game.whoWon());
+	}
+
+	@Test
+	public void computerWinsVsHuman() throws TicTacToeException
+	{
+		int seed = 15;
+		TicTacToe game = new TicTacToe(seed);
+		game.insertChar(7);
+		game.insertChar(game.getComputerMove()); // should generate 0
+		game.insertChar(6);
+		game.insertChar(game.getComputerMove()); // should generate 1
+		game.insertChar(5);
+		game.insertChar(game.getComputerMove()); // should generate 2
+		assertTrue(game.gameFinished());
+		assertEquals(2, game.whoWon());
+	}
+
 	@Test 
 	public void gameEndsInTie() throws TicTacToeException
 	{
