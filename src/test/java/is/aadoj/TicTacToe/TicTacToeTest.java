@@ -160,6 +160,21 @@ public class TicTacToeTest
 		assertEquals(1, game.whoWon());
 	}
 
+	@Test
+	public void computerWinsVsHuman() throws TicTacToeException
+	{
+		int seed = 15;
+		TicTacToe game = new TicTacToe(seed);
+		game.insertChar(7);
+		game.insertChar(game.getComputerMove()); // should generate 0
+		game.insertChar(6);
+		game.insertChar(game.getComputerMove()); // should generate 1
+		game.insertChar(5);
+		game.insertChar(game.getComputerMove()); // should generate 2
+		assertTrue(game.gameFinished());
+		assertEquals(2, game.whoWon());
+	}
+
 	@Test 
 	public void gameEndsInTie() throws TicTacToeException
 	{

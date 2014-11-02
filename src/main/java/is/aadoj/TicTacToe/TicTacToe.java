@@ -88,7 +88,7 @@ public class TicTacToe
 		}
 		return location;
 	}
-
+	// generates the next random location
 	private int nextRandomInt()
 	{
 		return Math.abs(rand.nextInt() % 9);
