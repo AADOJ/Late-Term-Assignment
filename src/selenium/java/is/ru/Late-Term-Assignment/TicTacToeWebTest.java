@@ -2,8 +2,10 @@ package is.ru.sparkit;
 
 import java.util.concurrent.TimeUnit;
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertTrue;
+import org.junit.*;
+import static org.junit.Assert.*;
+//import static org.junit.Assert.assertEquals;
+//import static org.junit.Assert.assertTrue;
 import org.junit.AfterClass;
 import org.junit.Before;
 import org.junit.BeforeClass;
@@ -13,6 +15,9 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.support.ui.*;
 import org.openqa.selenium.WebDriver;
+import static org.hamcrest.CoreMatchers.*;
+import org.openqa.selenium.*;
+import org.openqa.selenium.support.ui.Select;
 
 public class TicTacToeWebTest {
 
@@ -102,4 +107,12 @@ public class TicTacToeWebTest {
     assertEquals("Winner is X!", driver.findElement(By.id("status")).getText());
   }
 
+  private boolean isElementPresent(By by) {
+    try {
+      driver.findElement(by);
+      return true;
+    } catch (NoSuchElementException e) {
+      return false;
+    }
+ }
 }
