@@ -1,9 +1,11 @@
-package is.ru.sparkit;
+package is.aadoj.TicTacToe;
 
 import java.util.concurrent.TimeUnit;
 
 import org.junit.*;
 import static org.junit.Assert.*;
+//import static org.junit.Assert.assertEquals;
+//import static org.junit.Assert.assertTrue;
 import org.junit.AfterClass;
 import org.junit.Before;
 import org.junit.BeforeClass;
@@ -40,22 +42,30 @@ public class TicTacToeWebTest {
         // Will be run after all tests in class have run
         driver.close();
     }
+/*
+  @Before
+  public void setUp() throws Exception {
+    driver = new FirefoxDriver();
+    baseUrl = "http://localhost:4567/";
+    driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
+  }
+*/
+  @Test
+  public void testTickTackToeWeb() throws Exception {
+    driver.get(baseUrl + "/");
+    assertEquals("TicTacToe", driver.getTitle());
+  }
 
 
-    @Before
-    public void setup() {
-        // Will be run before each test in class is runc
-        
-    }
 
   @Test
   public void testXWins() throws Exception {
-    driver.get(baseUrl + "/");
-    for (int second = 0;; second++) {
-        if (second >= 60) fail("timeout");
-        try { if (isElementPresent(By.id("tile0"))) break; } 
-        catch (Exception e) {Thread.sleep(1000);}      
-    }
+    driver.get(baseUrl + "/humanvshuman.html");
+//    for (int second = 0;; second++) {
+//        if (second >= 60) fail("timeout");
+//        try { if (isElementPresent(By.id("tile0"))) break; } 
+//        catch (Exception e) {Thread.sleep(1000);}      
+//    }
     driver.findElement(By.id("tile0")).click();
     assertEquals("X", driver.findElement(By.id("tile0")).getText());
     driver.findElement(By.id("tile8")).click();
@@ -70,12 +80,12 @@ public class TicTacToeWebTest {
   }
   @Test
   public void testTileIsOccupied() throws Exception {
-    driver.get(baseUrl + "/");
-    for (int second = 0;; second++) {
-        if (second >= 60) fail("timeout");
-        try { if (isElementPresent(By.id("tile0"))) break; } 
-        catch (Exception e) {Thread.sleep(1000);}
-    }
+    driver.get(baseUrl + "/humanvshuman.html");
+//    for (int second = 0;; second++) {
+//        if (second >= 60) fail("timeout");
+//        try { if (isElementPresent(By.id("tile0"))) break; } 
+//        catch (Exception e) {Thread.sleep(1000);}
+//    }
     driver.findElement(By.id("tile0")).click();
     driver.findElement(By.id("tile4")).click();
     driver.findElement(By.id("tile0")).click();
@@ -86,12 +96,12 @@ public class TicTacToeWebTest {
   }
       @Test
   public void testBoardIsEmpty() throws Exception {
-    driver.get(baseUrl + "/");
-    for (int second = 0;; second++) {
-        if (second >= 60) fail("timeout");
-        try { if (isElementPresent(By.id("tile0"))) break; } 
-        catch (Exception e) {Thread.sleep(1000);}
-    }
+    driver.get(baseUrl + "/humanvshuman.html");
+//    for (int second = 0;; second++) {
+//        if (second >= 60) fail("timeout");
+//        try { if (isElementPresent(By.id("tile0"))) break; } 
+//        catch (Exception e) {Thread.sleep(1000);}
+//    }
     driver.findElement(By.id("tile0")).click();
     assertEquals("X", driver.findElement(By.id("tile0")).getText());
     driver.findElement(By.id("tile8")).click();
@@ -105,6 +115,64 @@ public class TicTacToeWebTest {
     assertEquals("Winner is X!", driver.findElement(By.id("status")).getText());
   }
 
+//Human vs Computer tests
+ /* @Test
+  public void testXWinsCom() throws Exception {
+    driver.get(baseUrl + "humanvscomputer");
+//    for (int second = 0;; second++) {
+//        if (second >= 60) fail("timeout");
+//        try { if (isElementPresent(By.id("tile0"))) break; } 
+//        catch (Exception e) {Thread.sleep(1000);}      
+//    }
+    driver.findElement(By.id("tile0")).click();
+    assertEquals("X", driver.findElement(By.id("tile0")).getText());
+    driver.findElement(By.id("tile8")).click();
+    assertEquals("O", driver.findElement(By.id("tile8")).getText());
+    driver.findElement(By.id("tile3")).click();
+    assertEquals("X", driver.findElement(By.id("tile3")).getText());
+    driver.findElement(By.id("tile2")).click();
+    assertEquals("O", driver.findElement(By.id("tile2")).getText());
+    driver.findElement(By.id("tile6")).click();
+    assertEquals("X", driver.findElement(By.id("tile6")).getText());
+    assertEquals("Winner is X!", driver.findElement(By.id("status")).getText());
+  }
+  @Test
+  public void testTileIsOccupiedCom() throws Exception {
+    driver.get(baseUrl + "humanvscomputer");
+//    for (int second = 0;; second++) {
+//        if (second >= 60) fail("timeout");
+//        try { if (isElementPresent(By.id("tile0"))) break; } 
+//        catch (Exception e) {Thread.sleep(1000);}
+//    }
+    driver.findElement(By.id("tile0")).click();
+    driver.findElement(By.id("tile4")).click();
+    driver.findElement(By.id("tile0")).click();
+    assertEquals("Tile is occupied!", driver.findElement(By.id("status")).getText());
+    driver.findElement(By.id("tile6")).click();
+    driver.findElement(By.id("tile8")).click();
+    driver.findElement(By.id("tile3")).click();
+  }
+      @Test
+  public void testBoardIsEmptyCom() throws Exception {
+    driver.get(baseUrl + "humanvscomputer");
+//    for (int second = 0;; second++) {
+//        if (second >= 60) fail("timeout");
+//        try { if (isElementPresent(By.id("tile0"))) break; } 
+//        catch (Exception e) {Thread.sleep(1000);}
+//    }
+    driver.findElement(By.id("tile0")).click();
+    assertEquals("X", driver.findElement(By.id("tile0")).getText());
+    driver.findElement(By.id("tile8")).click();
+    assertEquals("O", driver.findElement(By.id("tile8")).getText());
+    driver.findElement(By.id("tile3")).click();
+    assertEquals("X", driver.findElement(By.id("tile3")).getText());
+    driver.findElement(By.id("tile2")).click();
+    assertEquals("O", driver.findElement(By.id("tile2")).getText());
+    driver.findElement(By.id("tile6")).click();
+    assertEquals("X", driver.findElement(By.id("tile6")).getText());
+    assertEquals("Winner is X!", driver.findElement(By.id("status")).getText());
+  }
+*/
   private boolean isElementPresent(By by) {
     try {
       driver.findElement(by);
