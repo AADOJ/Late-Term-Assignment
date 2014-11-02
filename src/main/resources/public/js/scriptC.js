@@ -87,19 +87,12 @@ function decideUpponResponse(response){
 	if(response.gameFinished){
 		boardLocked = true;
 		if(response.winner == 1){
-<<<<<<< HEAD
-
-=======
 			xWins++;
->>>>>>> b13c64acf8eb4cd896e5233653042a8487c9bc70
 			messageToUser("You win!");
-			$("#xwins").text(xWins0);
+			$("#xwins").text(xWins);
 		} else if(response.winner == 2) {
-<<<<<<< HEAD
 			drawOnBoard(tileNum);
-=======
 			oWins++;
->>>>>>> b13c64acf8eb4cd896e5233653042a8487c9bc70
 			messageToUser("Computer win!");
 			$("#owins").text(oWins);
 		} else {
@@ -108,11 +101,6 @@ function decideUpponResponse(response){
 		}
 
 	}else{
-<<<<<<< HEAD
-		
-=======
-		var tileNum = response.computerMove;
->>>>>>> b13c64acf8eb4cd896e5233653042a8487c9bc70
 		drawOnBoard(tileNum);
 	}
 }
