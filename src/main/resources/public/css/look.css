@@ -1,16 +1,24 @@
+body {
+	font-family: 'Open Sans', sans-serif;
+	margin: 0 auto;
+	margin-top:10%;
+	max-width: 1200px;
+	background-color: lightblue;
+}
+
 table {
 	border-collapse: collapse;
 	/*position: relative;*/
-	width: 10em;
+	width: auto;
 	margin-left: auto;
 	margin-right: auto;
 }
 
 td {
 	text-align: center;
-	font-size: 26px;
-	height:40px;
-	width: 40px;
+	font-size: 2em;
+	height:6em;
+	width: 6em;
 	position: center;
 	border: solid;
 	background-color: indianred;
@@ -19,6 +27,7 @@ td {
 
 td:hover {
 	cursor:pointer;
+	background-color: #dd6061;
 }
 
 #header {
@@ -34,12 +43,7 @@ td:hover {
 	text-align: center;
 }
 
-body {
-	margin-left: 30%;
-	margin-right: 30%;
-	margin-top:10%;
-	background-color: lightblue;
-}
+
 
 p, h1, h3{
 	text-align: center;

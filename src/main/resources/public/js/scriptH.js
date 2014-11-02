@@ -18,7 +18,6 @@ $(document).ready(function(){
 		} else if(!boardLocked && ifOccupied(tileNum)) {
 			messageToUser("Tile is occupied!");
 		}
-
 	});
 
 	$("#restartButt").click(function(){
