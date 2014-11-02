@@ -1,7 +1,7 @@
 package is.aadoj.TicTacToe;
 
 import java.util.Scanner;
-import is.aadoj.TicTacToe.TicTacToe.TicTacToeException;
+import is.aadoj.TicTacToe.TicTacToeException;
 
 public class TicTacToeConsoleUI
 {

@@ -2,7 +2,7 @@ package is.aadoj.TicTacToe;
 
 import static org.junit.Assert.*;
 import org.junit.Test;
-import is.aadoj.TicTacToe.TicTacToe.TicTacToeException;
+import is.aadoj.TicTacToe.TicTacToeException;
 
 public class TicTacToeTest
 {
