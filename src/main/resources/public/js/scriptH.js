@@ -2,8 +2,8 @@ var turn;
 var gameArray;
 var round;
 var boardLocked;
-var Xwins = 0;
-var Owins = 0;
+var xWins = 0;
+var oWins = 0;
 
 
 $(document).ready(function(){
@@ -28,6 +28,11 @@ $(document).ready(function(){
 	$("#newGame").click(function() {
 		newGame();
 	});
+
+	$("#chooseGame").click(function() {
+		window.location.href = "index.html";
+	});
+
 
 });
 
@@ -84,13 +89,13 @@ function decideUpponResponse(response){
 	if(response.gameFinished){
 		boardLocked = true;
 		if(response.winner == 1){
-			Xwins++;
+			xWins++;
 			messageToUser("Winner is X!");
-			$("#xwins").html(Xwins);
+			$("#xwins").html(xWins);
 		} else if(response.winner == 2) {
-			Owins++;
+			oWins++;
 			messageToUser("Winner is O!");
-			$("#owins").text(Owins);
+			$("#owins").text(oWins);
 		} else {
 			messageToUser("It's a draw!");
 		}
@@ -115,9 +120,9 @@ function ajaxCall(){
 }
 
 function newGame() {
-	Xwins = 0;
-	Owins = 0;
+	xWins = 0;
+	oWins = 0;
 	restart();
-	$("#xwins").html(Xwins);
-	$("#owins").html(Owins);
+	$("#xwins").html(oWins);
+	$("#owins").html(xWins);
 }
