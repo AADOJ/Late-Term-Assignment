@@ -55,7 +55,7 @@ public class TicTacToe
 		else symbol = 'O';
 
 
-		if(board[location] == 'X' || board[location] == 'O') 
+		if(isOccupied(location)) 
 		{
 			round--;
 			throw new TicTacToeException("This slot is occupied!");	
@@ -65,16 +65,21 @@ public class TicTacToe
 		return board;
 	}
 
+	private boolean isOccupied(int location)
+	{
+		return board[location] == 'X' || board[location] == 'O';
+	}
+
 	// get the number of tile selected by AI
 	public int getComputerMove()
 	{
-		int location = Math.abs(rand.nextInt() % 9);
+		int location = nextRandomInt();
 		boolean occupied = true;
 		while(occupied)
 		{
-			if(board[location] == 'X' || board[location] == 'O')
+			if(isOccupied(location))
 			{
-				location = Math.abs(rand.nextInt() % 9);
+				location = nextRandomInt();
 			}
 			else
 			{
@@ -82,6 +87,11 @@ public class TicTacToe
 			}
 		}
 		return location;
+	}
+
+	private int nextRandomInt()
+	{
+		return Math.abs(rand.nextInt() % 9);
 	}
 
 	public boolean gameFinished()
