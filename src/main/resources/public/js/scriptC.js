@@ -2,6 +2,8 @@ var turn;
 var gameArray;
 var round;
 var boardLocked;
+var xWins = 0;
+var oWins = 0;
 
 
 $(document).ready(function(){
@@ -16,12 +18,18 @@ $(document).ready(function(){
 		} else if(!boardLocked && ifOccupied(tileNum)) {
 			messageToUser("Tile is occupied!");
 		}
-
-
 	});
 
 	$("#restartButt").click(function(){
 		restart();
+	});
+
+	$("#newGame").click(function() {
+		newGame();
+	});
+
+	$("#chooseGame").click(function() {
+		window.location.href = "index.html";
 	});
 
 });
@@ -32,7 +40,7 @@ function messageToUser(message){
 
 function restart(){
 
-	messageToUser("It's player-X turn!");
+	messageToUser("Your turn!");
 	$(".tile").each(function(){
 		$(this).html("&nbsp;");
 	});
@@ -56,18 +64,18 @@ function drawOnBoard(tileNum){
 	if(turn === 1){
 		$(tileID).text("X");
 		gameArray[round] = tileNum;
-		messageToUser("It's player-O turn!");
+		messageToUser("Computer turn!");
 	} else {
 		$(tileID).text("O");
 		gameArray[round] = tileNum;
-		messageToUser("It's player-X turn!");
+		messageToUser("Your turn!");
 	}
 	changeTurn();
 	round++;
 }
 
 function iniz(){
-	messageToUser("It's player-X turn!");
+	messageToUser("Your turn!");
 	gameArray = new Array("9","9","9","9","9","9","9","9","9");
 	round = 0;
 	boardLocked = false;
@@ -79,13 +87,20 @@ function decideUpponResponse(response){
 	if(response.gameFinished){
 		boardLocked = true;
 		if(response.winner == 1){
-			messageToUser("Winner is X!");
+			xWins++;
+			messageToUser("You win!");
+			$("#xwins").text(xWins0);
 		} else if(response.winner == 2) {
-			messageToUser("Winner is O!");
+			oWins++;
+			messageToUser("Computer win!");
+			$("#owins").text(oWins);
 		} else {
 			messageToUser("It's a draw!");
 		}
 
+	}else{
+		var tileNum = response.computerMove;
+		drawOnBoard(tileNum);
 	}
 }
 
@@ -98,9 +113,18 @@ function ifOccupied(tileNum) {
 }
 
 function ajaxCall(){
-
-	 $.post("/id", 'id=' + JSON.stringify(gameArray) )
+	boardLocked = true;
+	 $.post("/computer/id", 'id=' + JSON.stringify(gameArray) )
         .done(function(data) {
             decideUpponResponse(jQuery.parseJSON(data));
+            boardLocked = false;
         }); 
+}
+
+function newGame() {
+	xWins = 0;
+	oWins = 0;
+	restart();
+	$("#xwins").html(xWins);
+	$("#owins").html(oWins);
 }
