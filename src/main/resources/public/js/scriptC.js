@@ -2,6 +2,8 @@ var turn;
 var gameArray;
 var round;
 var boardLocked;
+var xWins;
+var yWins;
 
 
 $(document).ready(function(){
