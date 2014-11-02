@@ -83,23 +83,24 @@ function iniz(){
 }
 
 function decideUpponResponse(response){
-	
+	var tileNum = response.computerMove;
 	if(response.gameFinished){
 		boardLocked = true;
 		if(response.winner == 1){
 			xWins++;
 			messageToUser("You win!");
-			$("#xwins").text(xWins0);
+			$("#xwins").text(xWins);
 		} else if(response.winner == 2) {
+			drawOnBoard(tileNum);
 			oWins++;
 			messageToUser("Computer win!");
 			$("#owins").text(oWins);
 		} else {
+			drawOnBoard(tileNum);
 			messageToUser("It's a draw!");
 		}
 
 	}else{
-		var tileNum = response.computerMove;
 		drawOnBoard(tileNum);
 	}
 }
@@ -116,8 +117,10 @@ function ajaxCall(){
 	boardLocked = true;
 	 $.post("/computer/id", 'id=' + JSON.stringify(gameArray) )
         .done(function(data) {
-            decideUpponResponse(jQuery.parseJSON(data));
-            boardLocked = false;
+        	var response = jQuery.parseJSON(data);
+            decideUpponResponse(response);
+            if(!response.gameFinished)
+            	boardLocked = false;
         }); 
 }
 
