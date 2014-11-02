@@ -167,4 +167,21 @@ public class TicTacToe
 			+ board[6] + wall + board[7] + wall + board[8];
 		return boardString;
 	}
+
+	public void insertArray(int inputs[])throws TicTacToeException
+	{
+		for (int i = 0; i < 9; i++) {
+			int number = inputs[i];
+            if (number == 9) break;
+			try
+			{
+				insertChar(number);
+			}
+			catch(TicTacToeException ex)
+			{
+				throw new TicTacToeException(ex.getMessage());
+			}
+			
+		}
+	}
 }
